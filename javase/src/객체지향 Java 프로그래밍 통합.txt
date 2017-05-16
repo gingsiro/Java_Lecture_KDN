@@ -1,120 +1,131 @@
 
----------------------------------------- 1 ���� ----------------------------------------
+---------------------------------------- 1 일차 ----------------------------------------
 
 C:\Program Files\Java\jdk1.8.0_131\src.zip
-�ʱ� �ڵ���� ������
+초기 코드들의 모음집
 C:\Program Files\Java\jdk1.8.0_131\bin
-java.exe vm ���� �ڹ� ���α׷� ������ �� �ְ� ������
-java-rmi.exe rmi �ڵ� ó��
+java.exe vm 으로 자바 프로그램 실행할 수 있게 도와줌
+java-rmi.exe rmi 코드 처리
 appletviewer.exe 
-�⺻������ jre �� �����Ű�� ��.
-jdk�� �������ֱ� ���� JAVA_HOME�� �����Ѵ�.
-����ǻ��>�Ӽ�>���޽ý��ۼӼ�>ȯ�溯��>�ý��ۺ���>���θ����>JAVA_HOME>C:\Program Files\Java\jdk1.8.0_131 �߰�
-����ǻ��>�Ӽ�>���޽ý��ۼӼ�>ȯ�溯��>�ý��ۺ���>path>����>�� �տ� %JAVA_HOME%\bin; �߰�
-eclipse�� ���� �����Ͽ� ����ϰ����� ��ο� ����
-eclipse������ eclipse.ini �����е�� ����
-�ɼǵ��� ����Ǿ�����
--X : ���� �ɼ��� �ȵɼ��� ����
-ms : memory start, start memory, ������ �޸𸮸� ����
-mx : �⺻ ������
-XXMaxPermSize : Ŭ���� �޸�
-vdi ���� �����ϴ� ȯ���̹Ƿ� �⺻ ����� 512�� ����
+기본적으로 jre 를 실행시키려 함.
+jdk를 실행해주기 위해 JAVA_HOME을 설정한다.
+내컴퓨터>속성>고급시스템속성>환경변수>시스템변수>새로만들기>JAVA_HOME>C:\Program Files\Java\jdk1.8.0_131 추가
+내컴퓨터>속성>고급시스템속성>환경변수>시스템변수>path>편집>맨 앞에 %JAVA_HOME%\bin; 추가
+eclipse는 압축 해제하여 사용하고싶은 경로에 저장
+eclipse폴더에 eclipse.ini 워드패드로 열기
+옵션들이 기재되어있음
+-X : 적용 될수도 안될수도 있음
+ms : memory start, start memory, 힙영역 메모리를 지정
+mx : 기본 사이즈
+XXMaxPermSize : 클래스 메모리
+vdi 에서 실행하는 환경이므로 기본 사이즈를 512로 변경
 
-eclipse ����
-window>preferences>general>workspace>Text File Encoding>UTF-8�� ����>apply>ok
-window>preferences>general>appearance>Colors and Fonts>���ⲯ ����
-������ Quick Access ���� �߰� ������ Java �߰�
- - ��Ű�� �ͽ��÷η��� �߰��Ҷ� JavaProject�� ���� ����
+eclipse 실행
+window>preferences>general>workspace>Text File Encoding>UTF-8로 변경>apply>ok
+window>preferences>general>appearance>Colors and Fonts>취향껏 변경
+오른쪽 Quick Access 옆탭 추가 눌러서 Java 추가
+ - 패키지 익스플로러에 추가할때 JavaProject로 시작 가능
 new java project
-������Ʈ�� ����
+프로젝트명 지정
 next
 libraries
-JRE�� ����
-Add External JARs�� JAR ���� �߰� ����
-Package(chapter) �߰�
-Class �߰�
-�̸� ���� �� Public static void main �ڽ� Ŭ��
-ctrl ������ Ŭ���ϸ� ���� Ŭ������ �̵� ����
-ctrl+alt+�� : ���� ���� ���� �ٿ��ֱ� ���
-alt+��,�� : ���� �� �̵� ���
-ctrl+shift+f : �ڵ� ���� ���
+JRE가 보임
+Add External JARs로 JAR 파일 추가 가능
+Package(chapter) 추가
+Class 추가
+이름 지정 후 Public static void main 박스 클릭
+ctrl 누르고 클릭하면 상위 클래스로 이동 가능
+ctrl+alt+↓ : 한줄 복사 엔터 붙여넣기 기능
+alt+↑,↓ : 한줄 줄 이동 기능
+ctrl+shift+f : 코드 정렬 기능
 
----------------------------------------- 2 ���� ----------------------------------------
+---------------------------------------- 2 일차 ----------------------------------------
 
-modifier ����
-access modifier(����������)
-public : ��𼭳� ���� ����(��Ű���� �޶� ���� ����)
-protected : ��Ű���� �޶� ��� ���迡���� ���� ����
-(����, default)	: ���� ��Ű�� ������ ���� ����
-pricate	: ������ Ŭ���� �������� ���� ����
-usage modifier(Ȱ��������)
-static	: ������ �ڹٸ� ���� ���� �ο�
-final	: ���� �Ұ�
-abstract	: �߻��� ���� �ο�
+modifier 종류
+access modifier(접근제한자)
+public : 어디서나 접근 가능(패키지가 달라도 접근 가능)
+protected : 패키지가 달라도 상속 관계에서는 접근 가능
+(생략, default)	: 같은 패키지 내에서 접근 가능
+pricate	: 선언한 클래스 내에서만 접근 가능
+usage modifier(활용제한자)
+static	: 동적인 자바를 정적 성격 부여
+final	: 수정 불가
+abstract	: 추상적 성격 부여
 
-[public | final or abstract] class Ŭ�����̸� [extends �θ�Ŭ�����̸�]
-	[implements �����������̽��̸�, ...]{ 
+[public | final or abstract] class 클래스이름 [extends 부모클래스이름]
+	[implements 슈퍼인터페이스이름, ...]{ 
 
-	//�Ӽ� ����
-	[modifiers] DataType �Ӽ��� [=��];
+	//속성 선언
+	[modifiers] DataType 속성명 [=값];
 
-	//������ ����
-	[access modifier] Ŭ�����̸�([args]){
-		//��ü �ʱ�ȭ �ڵ� �ۼ�
+	//생성자 선언
+	[access modifier] 클래스이름([args]){
+		//객체 초기화 코드 작성
 	}
 
-	//�޼��带 ����
-	[modifiers] return_type �޼ҵ��̸�([args]){
-		[return ��;]
+	//메서드를 선언
+	[modifiers] return_type 메소드이름([args]){
+		[return 값;]
 	}
 }
 
-��ü ���� ��� : 
-new ������([args]);
-//new : �������� �Ҵ��ϰڴ�.
-�Ӽ�, �޼��� ����
-��ü.�Ӽ��� ��ü.�޼���([args])
+객체 생성 방법 : 
+new 생성자([args]);
+//new : 동적으로 할당하겠다.
+속성, 메서드 접근
+객체.속성명 객체.메서드([args])
 
----------------------------------------- 3 ���� ----------------------------------------
+---------------------------------------- 3 일차 ----------------------------------------
 
-[modifier] class Ŭ������ extends �θ�Ŭ�����̸�;
-Ŭ�����ε� �� �������� �θ�Ŭ���� �ε�
+[modifier] class 클래스명 extends 부모클래스이름;
+클래스로딩 시 동적으로 부모클래스 로딩
 
----------------------------------------- 4 ���� ----------------------------------------
+---------------------------------------- 4 일차 ----------------------------------------
 
-������ ���� modifier
-access modifier : public > pritected > ����(default) > private
+다형성 관련 modifier
+access modifier : public > pritected > 생략(default) > private
 usage modifier : static, final, abstract
-  static : ������ java�� ��������
-  final : ���� �Ұ�
-  abstract : �߻�
+  static : 동적인 java를 정적으로
+  final : 수정 불가
+  abstract : 추상
 
----------------------------------------- 5 ���� ----------------------------------------
+---------------------------------------- 5 일차 ----------------------------------------
 
 RuntimeException (UnChecked Exception)
-l- NullPointException (��ü �������� �Ӽ�,�޼��忡 ������ ���)
-l- ClassCastException (down casting �� �� ���µ� �� ���)
-l- ArrayIndexOutOfBoundsException (�迭�� ���� ������ ��� ���)
-l- NumberFormatException (���ڿ��� �ش� format(����, �Ǽ�, ����, ����)�� ��ȯ �� ���� �߻�)
+l- NullPointException (객체 생성없이 속성,메서드에 접근한 경우)
+l- ClassCastException (down casting 할 수 없는데 한 경우)
+l- ArrayIndexOutOfBoundsException (배열의 접근 범위를 벗어난 경우)
+l- NumberFormatException (문자열을 해당 format(정수, 실수, 문자, 논리)로 변환 시 오류 발생)
 
-1. try ~ catch : ������ �߻��� ������ ����ó��
+1. try ~ catch : 오류가 발생한 곳에서 예외처리
 try{
-   ~ // (1) ����
-   ~ // (2) �����߻��ڵ�
+   ~ // (1) 실행
+   ~ // (2) 오류발생코드
    ~ // (3) 
-} catch ( ����Ÿ�� ���� ) {
-   ~ // (4) ����ó��
+} catch ( 예외타입 인자 ) {
+   ~ // (4) 예외처리
 } finally {
-   ~ // (5) try ������ �� ����Ǵ� �ڵ�
+   ~ // (5) try 들어오면 꼭 실행되는 코드
 }
 
 (1) -> (2) -> (4) -> (5)
-������ ����ȴ�.
+순서로 실행된다.
 
 
+Collection
+    ↑  
+	├─List : 순서대로 저장 O, 데이터 중복 O, Index(0~size), 저장Index(0~size-1) 
+	│   ├ Array List  : 배열로 저장, 3개 저장중일때 Index=3, 저장Index=0~2
+	│   │               삽입 가능(저장위치에 저장 시 뒤로 밀림), 5번자리에 저장X
+	│   │               삭제 가능(삭제위치를 삭제 시 앞으로 당김)
+	│   │               중간 삽입,삭제 다수 발생 시 성능 저하 
+	│   └ Linked List : 데이터 저장 외에 다음저장, 이전저장에 대한 위치정보 보유
+	│					삽입 가능(저장위치에 저장 시 이전, 이후 위치정보만 교체 하여 삽입)
+	│					삭제 가능(삭제위치를 삭제 시 이전, 이후 위치정보만 교체 후 삭제)
+	│					중간 삽입,삭제 다수 발생 시 성능 좋음(이전, 이후 위치정보만 교체)
+	└─ SET : 순서대로 저장 X, 데이터 중복 X, Index X
 
-
-
+시험 : execption object collection
 
 
 

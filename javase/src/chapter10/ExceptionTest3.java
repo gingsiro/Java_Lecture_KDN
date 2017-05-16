@@ -27,6 +27,7 @@ class MyUtil{
 	
 	public static void openFile(String name) throws FileNotFoundException{
 		FileInputStream fis = new FileInputStream(name);
+		System.out.println(fis);
 	}
 }
 //try catch 와 throws 가 사용되는 상황이 다름 

@@ -49,7 +49,14 @@ class Dog extends Animal{
 	
 	public void keep(){
 		Calendar today = Calendar.getInstance();
-		int time = today.get(Calendar.HOUR_OF_DAY);
+		int time = today.get(Calendar.HOUR_OF_DAY); //24시간 기준
+//		int time = today.get(Calendar.HOUR); //12시간 기준
+//		System.out.println(time);
+		
+		//month를 뽑을 땐 +1을 해줘야 한다.
+		int month = today.get(Calendar.MONTH)+1;
+		System.out.println("month : " + month);
+		
 		if(time >= 9 && time <= 18){
 			System.out.println("잘 지키고 있습니다.");
 		}else{

@@ -14,12 +14,14 @@ package chapter10;
  * 상속 받기
  */
 
+@SuppressWarnings("serial")
 class MyCheckedExcep1 extends Exception { // Exception 을 상속받았기에 CheckedException으로 선언 됨
 	public MyCheckedExcep1(String msg){
 		super(msg); //getMessage(), printStackTrace() 에서 오류 메세지 확인
 	}
 }
 
+@SuppressWarnings("serial")
 class MyUnCheckedExcep extends RuntimeException {
 	public MyUnCheckedExcep(String msg){
 		super(msg);
