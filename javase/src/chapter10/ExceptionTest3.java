@@ -25,29 +25,28 @@ class MyUtil{
 		return i/j;
 	}
 	
-	public static void openFile(String name) /*throws FileNotFoundException*/{
-		FileInputStream fis = null;
-		try {
-			fis = new FileInputStream(name);			
-		} catch (Exception e) {
-//			getMessage() : 오류 메세지 추출 
-			System.out.println(e.getMessage());
-		}
+	public static void openFile(String name) throws FileNotFoundException{
+		FileInputStream fis = new FileInputStream(name);
 	}
 }
 //try catch 와 throws 가 사용되는 상황이 다름 
 public class ExceptionTest3 {
 	public static void main(String[] args) {
-		MyUtil.openFile("a.txt");
-		MyUtil.openFile("b.txt");
-		MyUtil.openFile("c.txt");
-		MyUtil.openFile("d.txt");
+		try {
+			MyUtil.openFile("a.txt");			
+		} catch (FileNotFoundException e1) {
+			// printStackTrace() : 오류가 발생한 곳의 모든 정보를 표시
+			// getMessage() : 오류 메세지를 추출
+			e1.printStackTrace();
+		}
 		
 		System.out.println(MyUtil.mod(256, 2));
+		
 		try {
-		} catch (Exception e) {
+			System.out.println(MyUtil.mod(256, 0));
+		} catch (ArithmeticException e) {
+			System.out.println("0으로 나눌 수 없습니다.");
 		}
-		System.out.println(MyUtil.mod(256, 0));
 		System.out.println("main end___");
 		
 	}
