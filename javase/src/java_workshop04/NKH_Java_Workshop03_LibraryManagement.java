@@ -1,6 +1,7 @@
 package java_workshop04;
 
 import java.util.LinkedList;
+import java.util.ListResourceBundle;
 
 public class NKH_Java_Workshop03_LibraryManagement {
 	/** 도서나 잡지를 저장하기 위한 LinkedList */
@@ -94,37 +95,41 @@ public class NKH_Java_Workshop03_LibraryManagement {
 			return null;
 		}
 	}
-//
-//	public NKH_Java_Workshop03_Book[] searchAll(NKH_Java_Workshop03_PageBean bean) {
-//		NKH_Java_Workshop03_Book[] temp = new NKH_Java_Workshop03_Book[bookIndex];
-//		int index = 0;
-//		if (bean != null) {
-//			if (bean.getKey().equals("title")) {
-//				for (int i = 0; i < bookIndex; i++) {
-//					if (bean.getWord().equals(bookList[i].getTitle())) {
-//						temp[index++] = bookList[i];
-//					}
-//				}
-//			} else if (bean.getKey().equals("author")) {
-//				for (int i = 0; i < bookIndex; i++) {
-//					if (bean.getWord().equals(bookList[i].getAuthor())) {
-//						temp[index++] = bookList[i];
-//					}
-//				}
-//			} else if (bean.getKey().equals("publisher")) {
-//				for (int i = 0; i < bookIndex; i++) {
-//					if (bean.getWord().equals(bookList[i].getPublisher())) {
-//						temp[index++] = bookList[i];
-//					}
-//				}
-//			}
-//			NKH_Java_Workshop03_Book[] arr = new NKH_Java_Workshop03_Book[index--];
-//			for (int i = index; i >= 0; i--) {
-//				arr[index-i] = temp[i];
-//			}
-//			return arr;
-//		} else {
-//			return null;
-//		}
-//	}
+
+	public NKH_Java_Workshop03_Book[] searchAll(NKH_Java_Workshop03_PageBean bean) {
+		int index = bookList.size();
+		NKH_Java_Workshop03_Book[] temp = new NKH_Java_Workshop03_Book[index];
+		LinkedList<NKH_Java_Workshop03_Book> tempList = new LinkedList<NKH_Java_Workshop03_Book>();
+				
+		if (bean != null) {
+			if (bean.getKey().equals("title")) {
+				for (int i = 0; i < index; i++) {
+					if (bean.getWord().equals(bookList.get(i).getTitle())) {
+						tempList.add(bookList.get(i));
+					}
+				}
+			} else if (bean.getKey().equals("author")) {
+				for (int i = 0; i < index; i++) {
+					if (bean.getWord().equals(bookList.get(i).getAuthor())) {
+						tempList.add(bookList.get(i));
+					}
+				}
+			} else if (bean.getKey().equals("publisher")) {
+				for (int i = 0; i < index; i++) {
+					if (bean.getWord().equals(bookList.get(i).getPublisher())) {
+						tempList.add(bookList.get(i));
+					}
+				}
+			}
+			
+			index = tempList.size();
+			NKH_Java_Workshop03_Book[] arr = new NKH_Java_Workshop03_Book[index--];
+			for (int i = index; i >= 0; i--) {
+				arr[index-i] = tempList.get(i);
+			}
+			return arr;
+		} else {
+			return null;
+		}
+	}
 }

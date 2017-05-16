@@ -28,10 +28,10 @@ public class NKH_Java_Workshop03_Test {
 		System.out.println("====================찾기=======================");
 		System.out.println(mgr.search("76534"));
 		System.out.println(mgr.search("86534"));
-//		NKH_Java_Workshop03_Book[] findList = mgr.searchAll(new NKH_Java_Workshop03_PageBean("publisher","Jaen"));
-//		for (NKH_Java_Workshop03_Book book : findList) {
-//			System.out.println(book);
-//		}
+		NKH_Java_Workshop03_Book[] findList = mgr.searchAll(new NKH_Java_Workshop03_PageBean("publisher","Jaen"));
+		for (NKH_Java_Workshop03_Book book : findList) {
+			System.out.println(book);
+		}
 		System.out.println("\n*********************** 도서 목록  **************************");
 		mgr.printBook();
 		System.out.println("\n***********************잡지 목록 **************************");
