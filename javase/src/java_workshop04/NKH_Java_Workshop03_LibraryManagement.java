@@ -45,8 +45,7 @@ public class NKH_Java_Workshop03_LibraryManagement {
 			String isbn = book.getIsbn();
 			int index = findBookIndex(isbn);
 			if (index > -1) {
-				bookList.remove(index);
-				bookList.add(index, book);
+				bookList.set(index, book);
 			} else {
 				System.out.printf("수정할 isbn %s번을 찾을 수 없습니다.\n", isbn);
 			}
