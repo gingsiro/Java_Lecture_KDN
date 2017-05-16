@@ -30,6 +30,7 @@ class MyUtil{
 	}
 }
 //try catch 와 throws 가 사용되는 상황이 다름 
+
 public class ExceptionTest3 {
 	public static void main(String[] args) {
 		try {
@@ -48,6 +49,5 @@ public class ExceptionTest3 {
 			System.out.println("0으로 나눌 수 없습니다.");
 		}
 		System.out.println("main end___");
-		
 	}
 }
