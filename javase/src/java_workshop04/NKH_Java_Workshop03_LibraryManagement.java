@@ -98,7 +98,6 @@ public class NKH_Java_Workshop03_LibraryManagement {
 
 	public NKH_Java_Workshop03_Book[] searchAll(NKH_Java_Workshop03_PageBean bean) {
 		int index = bookList.size();
-		NKH_Java_Workshop03_Book[] temp = new NKH_Java_Workshop03_Book[index];
 		LinkedList<NKH_Java_Workshop03_Book> tempList = new LinkedList<NKH_Java_Workshop03_Book>();
 				
 		if (bean != null) {
