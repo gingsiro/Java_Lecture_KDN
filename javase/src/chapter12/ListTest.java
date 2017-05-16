@@ -21,9 +21,11 @@ import chapter11.Manager;
  *   add(int index, Object o) : 지정한 index에 저장
  *   Object get(int index, Object o) : index에 해당하는 객체 추출
  *   remove(int index) : index에 해당하는 객체 삭제
- *   remove(Object o) : 해당 Object를 삭제
- *   indexOf(Object o) : 해당 객체에 저장된 index 추출 (배열 처음 부터 검색)
- *   lastIndexOf(Object o) : 해당 객체에 저장된 index 추출 (배열의 뒤에서 부터 검색)
+ *   remove(Object o) : Object를 삭제
+ *   indexOf(Object o) : 객체에 저장된 index 추출 
+ *   					 (배열 처음 부터 검색)
+ *   lastIndexOf(Object o) : 객체에 저장된 index 추출 
+ *   						 (배열의 뒤에서 부터 검색)
  */
 
 @SuppressWarnings({ "unchecked", "rawtypes", "unused" })
@@ -63,7 +65,8 @@ public class ListTest {
 		ArrayList<Employee> list2 = new ArrayList<Employee>(3);
 		list2.add(new Employee("emp1", "kdg", "나주", 3000000));
 		list2.add(new Manager("emp2", "kdg", "나주", 5000000, "사장"));
-//		list2.add(10); //Employee만 저장하도록 설정했기 때문에 그외엔 저장 불가
+//		list2.add(10); 
+//		Employee만 저장하도록 설정했기 때문에 그외엔 저장 불가
 		System.out.println(list2.get(0).toString());
 		
 	}

@@ -7,7 +7,7 @@ public class ExceptionTest2 {
 			// Integer.parseInt(String d) : 문자열을 정수로 변환 시켜주는 함수
 			result = 256 / Integer.parseInt(args[0]);
 			// } catch (ArithmeticException e) {
-			// System.out.println("0이 아닌 정수를 입력하세요. 기본 처리 됩니다.");
+			// System.out.println("0이 아닌 정수를 입력하세요. 기본처리됩니다.");
 			// result = 1;
 		} catch (NumberFormatException e) {
 			System.out.println("정수로 입력해 주세요. 기본 처리 됩니다.");

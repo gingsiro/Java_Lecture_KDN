@@ -15,8 +15,12 @@ public class StringTest {
 		System.out.printf("str1.equals(str3) %b\n", str1.equals(str3));
 		System.out.printf("str3.equals(str4) %b\n", str3.equals(str4));
 		
-		str1 += " world"; //문자열 + 로 연산하면, Garbage Collector가 발동되어 성능 저하
-		str2 += " world";//최대한 지양하자
+		str1 += " world"; 
+		// + 로 연산하면, Garbage Collector가 발동 => 성능 저하
+		
+		str2 += " world";
+		//최대한 지양하자
+		
 		System.out.println(str1 + " world");
 		
 //		StringBuffer sb1;
