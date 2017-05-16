@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class NKH_Java_Workshop03_LibraryManagement {
 	/** 도서나 잡지를 저장하기 위한 LinkedList */
 	LinkedList<NKH_Java_Workshop03_Book> bookList = new LinkedList<NKH_Java_Workshop03_Book>();
-	
+
 	public NKH_Java_Workshop03_LibraryManagement() {
 		bookList = new LinkedList<NKH_Java_Workshop03_Book>();
 	}
@@ -98,7 +98,7 @@ public class NKH_Java_Workshop03_LibraryManagement {
 	public NKH_Java_Workshop03_Book[] searchAll(NKH_Java_Workshop03_PageBean bean) {
 		int index = bookList.size();
 		LinkedList<NKH_Java_Workshop03_Book> tempList = new LinkedList<NKH_Java_Workshop03_Book>();
-				
+
 		if (bean != null) {
 			if (bean.getKey().equals("title")) {
 				for (int i = 0; i < index; i++) {
@@ -119,11 +119,11 @@ public class NKH_Java_Workshop03_LibraryManagement {
 					}
 				}
 			}
-			
+
 			index = tempList.size();
 			NKH_Java_Workshop03_Book[] arr = new NKH_Java_Workshop03_Book[index--];
 			for (int i = index; i >= 0; i--) {
-				arr[index-i] = tempList.get(i);
+				arr[index - i] = tempList.get(i);
 			}
 			return arr;
 		} else {
