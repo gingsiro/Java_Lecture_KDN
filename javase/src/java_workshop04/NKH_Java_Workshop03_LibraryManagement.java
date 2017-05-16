@@ -1,7 +1,6 @@
 package java_workshop04;
 
 import java.util.LinkedList;
-import java.util.ListResourceBundle;
 
 public class NKH_Java_Workshop03_LibraryManagement {
 	/** 도서나 잡지를 저장하기 위한 LinkedList */
