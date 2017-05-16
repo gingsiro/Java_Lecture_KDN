@@ -2,12 +2,12 @@ package java_workshop04;
 
 import java.util.LinkedList;
 
-public class NKH_Java_Workshop03_LibraryManagement {
+public class NKH_Java_Workshop04_LibraryManagement {
 	/** 도서나 잡지를 저장하기 위한 LinkedList */
-	LinkedList<NKH_Java_Workshop03_Book> bookList = new LinkedList<NKH_Java_Workshop03_Book>();
+	LinkedList<NKH_Java_Workshop04_Book> bookList = new LinkedList<NKH_Java_Workshop04_Book>();
 
-	public NKH_Java_Workshop03_LibraryManagement() {
-		bookList = new LinkedList<NKH_Java_Workshop03_Book>();
+	public NKH_Java_Workshop04_LibraryManagement() {
+		bookList = new LinkedList<NKH_Java_Workshop04_Book>();
 	}
 
 	public int size() {
@@ -18,7 +18,7 @@ public class NKH_Java_Workshop03_LibraryManagement {
 		if (isbn != null) {
 			int size = bookList.size();
 			for (int i = 0; i < size; i++) {
-				NKH_Java_Workshop03_Book book = bookList.get(i);
+				NKH_Java_Workshop04_Book book = bookList.get(i);
 				if (isbn.equals(book.getIsbn())) {
 					return i;
 				}
@@ -27,7 +27,7 @@ public class NKH_Java_Workshop03_LibraryManagement {
 		return -1;
 	}
 
-	public void add(NKH_Java_Workshop03_Book book) {
+	public void add(NKH_Java_Workshop04_Book book) {
 		if (book != null) {
 			String isbn = book.getIsbn();
 			int index = findBookIndex(isbn);
@@ -40,7 +40,7 @@ public class NKH_Java_Workshop03_LibraryManagement {
 		}
 	}
 
-	public void update(NKH_Java_Workshop03_Book book) {
+	public void update(NKH_Java_Workshop04_Book book) {
 		if (book != null) {
 			String isbn = book.getIsbn();
 			int index = findBookIndex(isbn);
@@ -69,8 +69,8 @@ public class NKH_Java_Workshop03_LibraryManagement {
 
 	public void printBook() {
 		for (int i = 0; i < bookList.size(); i++) {
-			boolean isBook = bookList.get(i) instanceof NKH_Java_Workshop03_Book;
-			boolean isMagazine = bookList.get(i) instanceof NKH_Java_Workshop03_Magazine;
+			boolean isBook = bookList.get(i) instanceof NKH_Java_Workshop04_Book;
+			boolean isMagazine = bookList.get(i) instanceof NKH_Java_Workshop04_Magazine;
 			if (isBook && !(isMagazine)) {
 				System.out.println(bookList.get(i));
 			}
@@ -79,14 +79,14 @@ public class NKH_Java_Workshop03_LibraryManagement {
 
 	public void printMagazine() {
 		for (int i = 0; i < bookList.size(); i++) {
-			boolean isMagazine = bookList.get(i) instanceof NKH_Java_Workshop03_Magazine;
+			boolean isMagazine = bookList.get(i) instanceof NKH_Java_Workshop04_Magazine;
 			if (isMagazine) {
 				System.out.println(bookList.get(i));
 			}
 		}
 	}
 
-	public NKH_Java_Workshop03_Book search(String isbn) {
+	public NKH_Java_Workshop04_Book search(String isbn) {
 		int index = findBookIndex(isbn);
 		if (index > -1) {
 			return bookList.get(index);
@@ -95,9 +95,9 @@ public class NKH_Java_Workshop03_LibraryManagement {
 		}
 	}
 
-	public NKH_Java_Workshop03_Book[] searchAll(NKH_Java_Workshop03_PageBean bean) {
+	public NKH_Java_Workshop04_Book[] searchAll(NKH_Java_Workshop04_PageBean bean) {
 		int index = bookList.size();
-		LinkedList<NKH_Java_Workshop03_Book> tempList = new LinkedList<NKH_Java_Workshop03_Book>();
+		LinkedList<NKH_Java_Workshop04_Book> tempList = new LinkedList<NKH_Java_Workshop04_Book>();
 
 		if (bean != null) {
 			if (bean.getKey().equals("title")) {
@@ -121,7 +121,7 @@ public class NKH_Java_Workshop03_LibraryManagement {
 			}
 
 			index = tempList.size();
-			NKH_Java_Workshop03_Book[] arr = new NKH_Java_Workshop03_Book[index--];
+			NKH_Java_Workshop04_Book[] arr = new NKH_Java_Workshop04_Book[index--];
 			for (int i = index; i >= 0; i--) {
 				arr[index - i] = tempList.get(i);
 			}

@@ -1,6 +1,6 @@
 package java_workshop04;
 
-public class NKH_Java_Workshop03_Book {
+public class NKH_Java_Workshop04_Book {
 	private String isbn;
 	private String title;
 	private String author;
@@ -32,15 +32,15 @@ public class NKH_Java_Workshop03_Book {
 		this.desc = desc;
 	}
 
-	public NKH_Java_Workshop03_Book() {
+	public NKH_Java_Workshop04_Book() {
 	}
 
-	public NKH_Java_Workshop03_Book(String isbn, String title, String author, String publisher, int price,
+	public NKH_Java_Workshop04_Book(String isbn, String title, String author, String publisher, int price,
 			String desc) {
 		setBook(isbn, title, author, publisher, price, desc);
 	}
 
-	public NKH_Java_Workshop03_Book(String isbn, String title, String author, String publisher, int price) {
+	public NKH_Java_Workshop04_Book(String isbn, String title, String author, String publisher, int price) {
 		setBook(isbn, title, author, publisher, price, null);
 	}
 

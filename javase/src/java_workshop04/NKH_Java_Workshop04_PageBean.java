@@ -1,6 +1,6 @@
 package java_workshop04;
 
-public class NKH_Java_Workshop03_PageBean {
+public class NKH_Java_Workshop04_PageBean {
 	private String key;
 	private String word;
 	
@@ -12,9 +12,9 @@ public class NKH_Java_Workshop03_PageBean {
 		return word;
 	}
 	
-	public NKH_Java_Workshop03_PageBean() {  }
+	public NKH_Java_Workshop04_PageBean() {  }
 	
-	public NKH_Java_Workshop03_PageBean(String key, String word) { 
+	public NKH_Java_Workshop04_PageBean(String key, String word) { 
 		setKey(key);
 		setWord(word);
 	}
