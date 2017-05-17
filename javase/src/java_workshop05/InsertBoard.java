@@ -1,23 +1,23 @@
-package chapter14;
+package java_workshop05;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class InsertTest {
+public class InsertBoard {
 	public static void main(String[] args) {
 		Connection con = null;
 		PreparedStatement stmt = null;
 
 		try {
 			con = DBUtil.getConnection();
-			String sql = " insert into emp(empno, ename, sal) "
-					   + " values(?, ?, ?) ";
-			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, 9876); 		// 첫번째 ?에 empno를 int로 값 설정
-			stmt.setString(2, "kdn"); 	// 두번째 ?에 ename을 String으로 값 설정
-			stmt.setInt(3, 5000); 		// 세번째 ?에 sal을 int로 값 설정
+			String sql = " insert into board(no, title, id, contents, regdate) "
+					   + " values(BOARD_NO.NEXTVAL, ?, ?, ?, SYSDATE) ";
 
-			//insert, update, delete문 실행은 executeUpdate()로 한다.
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, "처음 입력하다.");
+			stmt.setString(2, "kdn");
+			stmt.setString(3, "JDBC 첫번째 연습");
+
 			int row = stmt.executeUpdate();
 			if (row > 0) {
 				System.out.println("insert 됨");
@@ -28,7 +28,7 @@ public class InsertTest {
 			e.printStackTrace();
 		} finally {
 			DBUtil.close(stmt);
-			DBUtil.close(con);			
+			DBUtil.close(con);
 		}
 	}
 }

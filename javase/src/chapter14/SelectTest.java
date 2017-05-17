@@ -35,6 +35,5 @@ public class SelectTest {
 			DBUtil.close(stmt);
 			DBUtil.close(con);
 		}
-		
 	}
 }
