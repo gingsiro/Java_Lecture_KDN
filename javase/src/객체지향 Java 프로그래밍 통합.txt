@@ -131,7 +131,7 @@ Collection
 
 시험 : execption object collection
 
-------------------------------------- 6 일차 -------------------------------------
+----------------------------------- 6 일차 이론 -----------------------------------
 new MyThread()
 └─ start() ┬┬─> Runnable : 상태로 대기열에 들어감
 		   ↑│   -Max, Norm, Min 에 들어갈 수 있음
@@ -226,11 +226,12 @@ emp.toString();
 반드시 예외처리를 해야하는것
 안해도 괜찮은것
 
-실행시 발생하는 오류 runtime execption => 자식들은 unchecked exception (대부분이 디버그 거리, 사용자 입력에대한 에러처리 필수)
+실행시 발생하는 오류 runtime execption => 자식들은 unchecked exception 
+(대부분이 디버그 거리, 사용자 입력에대한 에러처리 필수)
 
 1. try catch final
 2. [modifier] 리턴타입 메서드이름(args) [throws exception타입1, ...]{
-										(checked execption만, unchecked exception은 안해도 잘 넘어감)
+							(checked execption만, unchecked exception은 안해도 잘 넘어감)
 		//일부러 던질 수 있는 exception
 		throw new Exception타입; //return의 대체, 반환되어 메서드에서 나가짐		
    }
@@ -238,11 +239,7 @@ emp.toString();
 try catch 실행 순서별 수행되는 코드 라인 점검
 
 
-
-
-
-
-
+----------------------------------- 6 일차 DB -----------------------------------
 
 
 
@@ -260,7 +257,32 @@ Data connections > 오른쪽클릭 > new > oracle > New Driver Definition > Orac
 
 oracle_10 > kdn > xe > 쿼리작성 > alt+s
 
+IO 예외 상황 : The Network Adapter could not establish the connection
+서버에 접속할 수 없는 상황
+ 1. DB 서버 IP가 틀린경우
+ 2. DB 서버가 구동되지 않은 경우
+   내컴퓨터 > 오른쪽클릭 > 관리 > 서비스
+   OracleService(XE)(저장소), Oracle(XE)TNSListener(접속) : 두가지 재시작
+   			 // (XE)는 DB명 이다.
+이외엔 대부분 코드 에러
 
+java.sql.SQLException:ORA-00904:"EMPN":부적합한 식별자
+sql query에서 empn이라는 컬럼이 없는 경우
+
+java.sql.SQLException: ORA-00911:문자가 부적합합니다.
+sql query에 ';' 이 들어간 경우나 ','가 잘못된 경우
+
+java.sql.SQLException: ORA-00942:테이블 또는 뷰가 존재하지 않습니다.
+sql query에 테이블 명이 잘못된 경우 
+
+java.sql.SQLException: ORA-00923: FROM 키워드가 필요한 위치에 없습니다.
+sql query에 앞뒤 스페이스를 주지 않아 FROM 이 속성 or ALIAS가 된 경우
+
+java.sql.SQLException: 인덱스에서 누락된 IN 또는 OUT 매개변수:: 1
+sql query에 작성한 ? 개수와 stmt.setXXX(~) 개수가 맞지 않는 경우
+
+java.sql.SQLException: 부적합한 열 이름
+결과 처리 시 rs.getXXXX("컬럼명")에서 컬럼명이 맞지 않는 경우
 
 
 
