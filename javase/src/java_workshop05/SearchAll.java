@@ -34,5 +34,6 @@ public class SearchAll {
 			DBUtil.close(stmt);
 			DBUtil.close(con);
 		}
+		
 	}
 }
