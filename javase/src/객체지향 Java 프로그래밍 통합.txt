@@ -117,12 +117,12 @@ try{
 
 
 Collection
-↑  
-├─List : 순서대로 저장 O, 데이터 중복 O, Index(0~size), 저장Index(0~size-1) 
+↑
+├─List : 순서대로 저장 O, 데이터 중복 O, Index(0~size), 저장Index(0~size-1)
 │   ├ Array List  : 배열로 저장, 3개 저장중일때 Index=3, 저장Index=0~2
 │   │               삽입 가능(저장위치에 저장 시 뒤로 밀림), 5번자리에 저장X
 │   │               삭제 가능(삭제위치를 삭제 시 앞으로 당김)
-│   │               중간 삽입,삭제 다수 발생 시 성능 저하 
+│   │               중간 삽입,삭제 다수 발생 시 성능 저하
 │   └ Linked List : 데이터 저장 외에 다음저장, 이전저장에 대한 위치정보 보유
 │					삽입 가능(저장 시 이전, 이후 위치정보만 교체 삽입)
 │					삭제 가능(삭제 시 이전, 이후 위치정보만 교체 후 삭제)
@@ -130,6 +130,164 @@ Collection
 └─ SET : 순서대로 저장 X, 데이터 중복 X, Index X
 
 시험 : execption object collection
+
+------------------------------------- 6 일차 -------------------------------------
+new MyThread()
+└─ start() ┬┬─> Runnable : 상태로 대기열에 들어감
+		   ↑│   -Max, Norm, Min 에 들어갈 수 있음
+		   ││   -지정하지 않으면 Norm에 들어감
+		   │├─> Scheduler 높은 방에 있는 Thread부터 스케줄링
+		   ↑└─> Run() : Thread 수행 시작
+		   │    ├─> Dead : Run메서드 종료 후 Thread 종료, 종료 후 start 시키면 Exception발생
+		   │	│		   stop메서드 실행
+		   └───<┼─> Block : I/O, Sleep, Suspend 가능(종료 시 Runnable로보냄)
+				└─> Wait : notify(), notifyAll(), wait() 으로 오게되는 대기 풀
+
+~ <- 코드라고 명시
+아래 코드들 중 싱크로 나이즈드 상황을 만드려면 1)과 같이 작성 
+	~~~
+	~~~
+	~~~
+1)  Synchronized(객체){
+	~~~
+	~~~
+	~~~
+	}
+
+시험 문제
+객체지향 관련 문제 20 ^
+배열 2~3 ^
+Statement
+(이론 + 실제 예제) 알아야 함
+실행결과를 쓰시오, 틀린 이유를 쓰시오
+Data - Primitive type : byte -> short, char -> int -> long -> float -> double
+						(이 순서로 자동형변환, 거꾸로는 명시 필요)
+						boolean
+						(형변환 불가)
+	 - Reference Type :
+  modifier : [public | (abstract or final)] class 클래스이름[extends SuperClass] [implements SuperInterface, ...]{
+  			         (protected, private, static 사용불가)
+  			 	// 속성
+  			 		[modifier]데이터타입 id;
+  			 		 (abstract X)
+  			 		
+  			 	// 생성자
+  			 		[access modifier] 클래스이름 ([args, ...]) { }
+  			 				  (ruturn타입 X)
+  			 						
+  			 	// 메서드
+  			 		[modifier] return타입 메서드이름([args, ...]){
+  			 		
+  			 		}
+  			 }
+Method
+
+클래스명 변수 = new 생성자([...]) [.메서드명]
+				데이터타입[] id = new 데이터타입[배열크기];
+										접근범위 : 0 ~ length-1
+										
+상속 - 속성
+     - 메서드 [modifier] class 클래스명 extends 부모클래스명
+			  public MyDate(){
+			  	super(); // 컴파일러가 자동으로한줄 끼워 넣는다.
+			  			// 자바는 동적이라 메모리 할당, 초기화를 위해 끼워넣음
+			  			// 부모 기본 생성자가 없으면 자식측에서 에러남
+			  			// 기본 생성자가 없다면, 자식측에서 부모의 인자 있는 생성자로 콜해야한다.
+			  			// super는 생성자의 첫번째행에서만 실행 가능.
+			  			//////////시험문제//////////
+			  			1. 서브에서 어떻게 해아하나, 이런 상황을 어떻게 해결해야 하나
+			  			2. 부모측이 public 인데 자식측에서 더 작은 걸로 선언할때, modifier 범위문제
+			  			3. 생성자 순서
+			  			4. 	
+			  }
+
+Reference의 다형성 : 모든 sub 는 super로 자동 형변환이 된다. (up casting)
+부모 클래스는 자식 메서드에 접근 불가
+따라서 (subType)부모객체; 로 형변환하여 접근할 수 있다.
+하지만 모든 부모객체가 형변환이 가능한 것은 아님
+
+Employee emp = new Engineer();
+down casting 이 일어나면 캐스팅 한 형태로 만 형변환 가능
+
+public void add(Employee emp){
+	if(emp instanceof Engineer){
+		Engineer eng = (Engineer) emp;
+	} else if(emp instanceof Manager){
+		Manager mgr = (Engineer) emp;
+	}
+}
+
+
+Employee emp = new Engineer();
+emp.toString();
+//Engineer에 있는 toString을 호출할 것이다. => virtual invocation
+
+
+반드시 예외처리를 해야하는것
+안해도 괜찮은것
+
+실행시 발생하는 오류 runtime execption => 자식들은 unchecked exception (대부분이 디버그 거리, 사용자 입력에대한 에러처리 필수)
+
+1. try catch final
+2. [modifier] 리턴타입 메서드이름(args) [throws exception타입1, ...]{
+										(checked execption만, unchecked exception은 안해도 잘 넘어감)
+		//일부러 던질 수 있는 exception
+		throw new Exception타입; //return의 대체, 반환되어 메서드에서 나가짐		
+   }
+
+try catch 실행 순서별 수행되는 코드 라인 점검
+
+
+
+
+
+
+
+
+
+
+
+프로젝트 > 우클릭 > new > folder > lib
+lib 폴더 ojdb14.jar 오른쪽클릭 build path>addbuildpath 선택하여 lib 추가
+
+window > show view > other > DataManagement > Data Source Explorer
+
+Data connections > 오른쪽클릭 > new > oracle > New Driver Definition > Oracle Thin Driver 10 
+> jar List(ojdbc14.jar 없어 오류, 삭제) > add jar > c:/oraclexe/ojdbc14.jar 추가 > OK
+> SID : xe > Host: localhost > user : kdn > pass : kdn > ping test > OK
+
+프로젝트 > 우클릭 > new > folder > query > query 우클릭 > new > file > 파일명.sql
+
+oracle_10 > kdn > xe > 쿼리작성 > alt+s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
