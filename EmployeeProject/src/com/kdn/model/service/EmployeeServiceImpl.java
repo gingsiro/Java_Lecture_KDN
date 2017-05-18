@@ -7,6 +7,7 @@ import java.util.List;
 import com.kdn.model.dao.EmployeeDao;
 import com.kdn.model.dao.EmployeeDaoImpl;
 import com.kdn.model.domain.Employee;
+import com.kdn.model.domain.EmployeeException;
 import com.kdn.model.domain.PageBean;
 import com.kdn.util.DBUtil;
 

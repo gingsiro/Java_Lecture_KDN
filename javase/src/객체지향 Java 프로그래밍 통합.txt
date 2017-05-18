@@ -329,8 +329,15 @@ MVC Pattern
 
 
 
-
-
+Employee 객체 제작
+DB의 속성들 확인 후 Bean 제작
+필요한 기능 확인 후 Dao 제작
+Dao에 맞는 Dao Impl 제작
+add, update, remove, search, searchAll, getcount
+작성한 Dao, DaoImpl 을 통해 service 제작
+service에 맞는 serviceImpl 제작
+pagebean 제작
+key, word, pageNo, interval, start = 1, int end = interval;
 
 
 

@@ -63,7 +63,6 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public Board search(Connection con, int no) throws SQLException {
-
 		return null;
 	}
 
@@ -83,7 +82,9 @@ public class BoardDaoImpl implements BoardDao {
 			StringBuilder sql = new StringBuilder(100);
 
 			sql.append(" select count(*) cnt from board where 1=1 ");
-			if (key != null & word != null && !key.equals("all") && word.trim().equals("")) {
+			if (key != null & word != null 
+					&& !key.equals("all") 
+					&& word.trim().equals("")) {
 				if (key.equals("id")) {
 					sql.append(" and id=? \n");
 				} else if(key.equals("title")) {
@@ -107,11 +108,7 @@ public class BoardDaoImpl implements BoardDao {
 			DBUtil.close(rs);
 			DBUtil.close(stmt);
 		}
-
 		return 1;
-		
-		
-		
 		
 		// PreparedStatement stmt = null;
 		// ResultSet rs = null;
@@ -201,5 +198,4 @@ public class BoardDaoImpl implements BoardDao {
 			DBUtil.close(stmt);
 		}
 	}
-
 }

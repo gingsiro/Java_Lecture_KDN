@@ -6,8 +6,8 @@ public class FileBean {
 	private String sfilename;
 	private int bno;
 	
-	public FileBean(){}
-
+	public FileBean(){ }
+	
 	public FileBean(String rfilename, String sfilename) {
 		this.rfilename = rfilename;
 		this.sfilename = sfilename;
