@@ -1,15 +1,24 @@
 package com.kdn.model.domain;
 
 public class Employee {
-	private int 	empno	;
+	private String 	empno	;
 	private String 	ename	;
 	private int 	salary	;
 	private String 	position;
 	private String 	address	;
-	public int getEmpno() {
+	
+	public Employee(String empno, String ename, int salary, String position, String address) {
+		super();
+		this.empno = empno;
+		this.ename = ename;
+		this.salary = salary;
+		this.position = position;
+		this.address = address;
+	}
+	public String getEmpno() {
 		return empno;
 	}
-	public void setEmpno(int empno) {
+	public void setEmpno(String empno) {
 		this.empno = empno;
 	}
 	public String getEname() {
