@@ -25,6 +25,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			stmt.setInt(3, emp.getSalary());
 			stmt.setString(4, emp.getPosition());
 			stmt.setString(5, emp.getAddress());
+			
+			stmt.executeUpdate();
+			
 		} finally {
 			DBUtil.close(stmt);
 		}
@@ -43,6 +46,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			stmt.setString(4, emp.getPosition());
 			stmt.setString(5, emp.getAddress());
 			stmt.setString(6, emp.getEmpno());
+			
+			stmt.executeUpdate();
 		} finally {
 			DBUtil.close(stmt);
 		}
@@ -55,6 +60,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			String sql = " delete from employee where empno=? ";
 			stmt = con.prepareStatement(sql);
 			stmt.setString(1, empno);
+
+			stmt.executeUpdate();
 		} finally {
 			DBUtil.close(stmt);
 		}
