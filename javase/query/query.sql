@@ -19,3 +19,7 @@ from ( select rownum ro, b.*
 	   		  ) b
 	 ) a
 where ro between 1 and 5;
+
+no, id, title, regdate, contents
+
+no, rfilename, sfilename, bno
