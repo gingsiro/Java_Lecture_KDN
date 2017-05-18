@@ -314,16 +314,17 @@ Processing - Controller
 이것이 PAC Pattern
 
 MVC Pattern
-├UI
-├Controller	
-├Model
-│  -Service
-│   기능 별로 모아서 처리, transaction, 보안, 기능에 필요한 코드 [ex) 은행거래service ]
-│  -DTO
-│   (Data Transfer Object) - DB내 테이블 당 하나로 DAO와 연결하여 데이터 전송을 용이하도록 함 
-│  -DAO
-│   (Data Access Object) - DB내 테이블 당 하나로 DB 접근 용이하도록 함			
-└DB
+├ 검색(조회조건), 데이터, 페이지, 
+├ UI
+├ Controller	
+├ Model
+│  ├ Service
+│  │ 기능 별로 모아서 처리, transaction, 보안, 기능에 필요한 코드 [ex) 은행거래service ]
+│  ├ DTO
+│  │ (Data Transfer Object) - DB내 테이블 당 하나로 DAO와 연결하여 데이터 전송을 용이하도록 함 
+│  └ DAO
+│    (Data Access Object) - DB내 테이블 당 하나로 DB 접근 용이하도록 함			
+└ DB
 
 
 
