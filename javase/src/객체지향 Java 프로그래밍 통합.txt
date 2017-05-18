@@ -285,6 +285,48 @@ java.sql.SQLException: 부적합한 열 이름
 결과 처리 시 rs.getXXXX("컬럼명")에서 컬럼명이 맞지 않는 경우
 
 
+----------------------------------- 7 일차 이론 -----------------------------------
+
+String s = r.getString(1);
+String s = rs.getString("fieldname"):
+
+DBCP(Data Base Connection Pool)
+커넥션을 풀에 보관해 놓고 사용자와 연결해주기 위해 사용
+
+
+UI를 위한 디자인 패턴
+┌ PAC Pattern
+└ MVC Pattern
+
+UI + processing => 과거엔 같은 코드로 이루져 있었음.
+UI와 processing을 분리하자 ! 
+그러다보니...
+UI - View
+Processing - Model
+ResultData - Controller 
+로 구분됨.
+이것이 MVC Pattern
+
+하다보니 Controller가 View와 떨어져있으니 불편하더라.
+UI - Presentation
+DAO - Abstract
+Processing - Controller
+이것이 PAC Pattern
+
+MVC Pattern
+├UI
+├Controller	
+├Model
+│  -Service
+│   기능 별로 모아서 처리, transaction, 보안, 기능에 필요한 코드 [ex) 은행거래service ]
+│  -DTO
+│   (Data Transfer Object) - DB내 테이블 당 하나로 DAO와 연결하여 데이터 전송을 용이하도록 함 
+│  -DAO
+│   (Data Access Object) - DB내 테이블 당 하나로 DB 접근 용이하도록 함			
+└DB
+
+
+
 
 
 
