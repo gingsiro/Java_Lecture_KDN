@@ -36,8 +36,24 @@ from ( select rownum ro, b.*
 	 ) a
 where ro between 6 and 10;
 
-x;
+no, id, title, regdate, contents;
 
-no, id, title, regdate, contents
+no, rfilename, sfilename, bno;
 
-no, rfilename, sfilename, bno
+drop table book
+
+create table book(
+	isbn varchar2(15) primary key,
+	title varchar2(100),
+	author varchar2(30),
+	publisher varchar2(50),
+	pubDate date,
+	price number,
+	info varchar2(4000)
+)s
+
+select * from book
+delete book
+
+
+
