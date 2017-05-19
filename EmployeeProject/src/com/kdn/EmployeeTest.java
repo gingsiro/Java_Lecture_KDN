@@ -5,7 +5,7 @@ import com.kdn.model.domain.PageBean;
 import com.kdn.model.service.EmployeeService;
 import com.kdn.model.service.EmployeeServiceImpl;
 
-public class Test {
+public class EmployeeTest {
 	public static void main(String[] args) {
 		EmployeeService service = new EmployeeServiceImpl();
 		

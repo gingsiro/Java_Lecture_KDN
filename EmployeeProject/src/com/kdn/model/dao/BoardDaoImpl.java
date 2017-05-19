@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.kdn.model.domain.Board;
@@ -18,11 +20,12 @@ public class BoardDaoImpl implements BoardDao {
 		PreparedStatement stmt = null;
 		try {
 			String sql = " insert into board(no, id, title, regdate, contents) "
-					+ " values(board_no.nextval, ?, ?, sysdate, ?) ";
+					+ " values(?, ?, ?, sysdate, ?) ";
 			stmt = con.prepareStatement(sql);
-			stmt.setString(1, board.getId());
-			stmt.setString(2, board.getTitle());
-			stmt.setString(3, board.getContents());
+			stmt.setInt(1, board.getNo());
+			stmt.setString(2, board.getId());
+			stmt.setString(3, board.getTitle());
+			stmt.setString(4, board.getContents());
 
 			stmt.executeUpdate();
 		} finally {
@@ -63,12 +66,105 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public Board search(Connection con, int no) throws SQLException {
-		return null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			StringBuilder sql = new StringBuilder(200);
+			sql.append(" select b.no no,id, title, contents, regdate                               ");
+			sql.append(" , bf.no fileno, rfilename, sfilename                                      ");
+			sql.append(" from boardfile bf                                                         ");
+			sql.append("   , (select no, id, title, contents, to_char(regdate, 'yy-mm-dd') regdate ");
+			sql.append(" 	 from board                                                            ");
+			sql.append(" 	 where no = ? ) b                                                      ");
+			sql.append(" where b.no = bf.bno(+)                                                    ");
+
+			stmt = con.prepareStatement(sql.toString());
+			stmt.setInt(1, no);
+			rs = stmt.executeQuery();
+
+			boolean isFirst = true;
+			Board board = null;
+			LinkedList<FileBean> list = new LinkedList<FileBean>();
+
+			while (rs.next()) {
+				if (isFirst) {
+					board = new Board(rs.getInt("no")
+									, rs.getString("id")
+									, rs.getString("title")
+									, rs.getString("regdate")
+									, rs.getString("contents")
+									);
+					isFirst = false;
+				}
+				String rfilename = rs.getString("rfilename");
+				String sfilename = rs.getString("sfilename");
+
+				if (rfilename != null) {
+					list.add(new FileBean(rfilename, sfilename));
+				}
+			}
+			if(board != null){
+				board.setFiles(list);
+			}
+			return board;
+		} finally {
+			DBUtil.close(rs);
+			DBUtil.close(stmt);
+		}
 	}
 
 	@Override
 	public List<Board> searchAll(Connection con, PageBean bean) throws SQLException {
-		return null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+
+		try {
+			String key = bean.getKey();
+			String word = bean.getWord();
+			StringBuilder sql = new StringBuilder(100);
+
+			// 검색조건 id, title, contents
+			sql.append("select a.*                        ");
+			sql.append("from ( select rownum ro, b.*      ");
+			sql.append("	   from ( select no, id, title");
+			sql.append("	   		  from board          ");
+			sql.append("	   		  where 1=1           ");
+			if (key != null & word != null && !key.equals("all") && word.trim().equals("")) {
+				if (key.equals("id")) {
+					sql.append(" and id=? \n");
+				} else if (key.equals("title")) {
+					sql.append(" and title= '%'||?||'%' \n");
+				} else if (key.equals("contents")) {
+					sql.append(" and contents= '%'||?||'%' \n");
+				}
+			}
+			sql.append("	   		  order by no desc    ");
+			sql.append("	   		  ) b                 ");
+			sql.append("	 ) a                          ");
+			sql.append("where ro between ? and ?       ");
+
+			stmt = con.prepareStatement(sql.toString());
+			int idx = 1;
+			if (key != null & word != null && !key.equals("all") && word.trim().equals("")) {
+				stmt.setString(idx++, word);
+			}
+
+			stmt.setInt(idx++, bean.getStart());
+			stmt.setInt(idx++, bean.getEnd());
+
+			rs = stmt.executeQuery();
+
+			ArrayList<Board> list = new ArrayList<Board>(bean.getInterval());
+
+			while (rs.next()) {
+				list.add(new Board(rs.getInt("no"), rs.getString("id"), rs.getString("title")));
+			}
+			return list;
+
+		} finally {
+			DBUtil.close(rs);
+			DBUtil.close(stmt);
+		}
 	}
 
 	@Override
@@ -82,15 +178,13 @@ public class BoardDaoImpl implements BoardDao {
 			StringBuilder sql = new StringBuilder(100);
 
 			sql.append(" select count(*) cnt from board where 1=1 ");
-			if (key != null & word != null 
-					&& !key.equals("all") 
-					&& word.trim().equals("")) {
+			if (key != null & word != null && !key.equals("all") && word.trim().equals("")) {
 				if (key.equals("id")) {
 					sql.append(" and id=? \n");
-				} else if(key.equals("title")) {
+				} else if (key.equals("title")) {
 					sql.append(" and title= '%'||?||'%' \n");
-				} else if(key.equals("contents")){
-					sql.append(" and contents= '%'||?||'%' \n");					
+				} else if (key.equals("contents")) {
+					sql.append(" and contents= '%'||?||'%' \n");
 				}
 				stmt = con.prepareStatement(sql.toString());
 				stmt.setString(1, word);
@@ -99,8 +193,8 @@ public class BoardDaoImpl implements BoardDao {
 				stmt = con.prepareStatement(sql.toString());
 				rs = stmt.executeQuery();
 			}
-			
-			if(rs.next()){
+
+			if (rs.next()) {
 				return rs.getInt("cnt");
 			}
 
@@ -108,8 +202,8 @@ public class BoardDaoImpl implements BoardDao {
 			DBUtil.close(rs);
 			DBUtil.close(stmt);
 		}
-		return 1;
-		
+		return 0;
+
 		// PreparedStatement stmt = null;
 		// ResultSet rs = null;
 		// try {
@@ -173,13 +267,13 @@ public class BoardDaoImpl implements BoardDao {
 					+ " values(boardfile_no.nextval, ?, ?, ?) ";
 			stmt = con.prepareStatement(sql);
 			for (FileBean fileBean : files) {
-				stmt.setInt(1, fileBean.getNo());
-				stmt.setString(2, fileBean.getRfilename());
-				stmt.setString(3, fileBean.getSfilename());
+				stmt.setString(1, fileBean.getRfilename());
+				stmt.setString(2, fileBean.getSfilename());
+				stmt.setInt(3, bno);
 				stmt.addBatch(); // 여러 배열처럼 쿼리 추가하기
 			}
 
-			stmt.executeUpdate();
+			stmt.executeBatch();
 		} finally {
 			DBUtil.close(stmt);
 		}

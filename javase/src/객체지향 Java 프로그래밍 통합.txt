@@ -42,15 +42,15 @@ ctrl+shift+f : 코드 정렬 기능
 ------------------------------------- 2 일차 -------------------------------------
 
 modifier 종류
-access modifier(접근제한자)
-public : 어디서나 접근 가능(패키지가 달라도 접근 가능)
-protected : 패키지가 달라도 상속 관계에서는 접근 가능
-(생략, default)	: 같은 패키지 내에서 접근 가능
-pricate	: 선언한 클래스 내에서만 접근 가능
-usage modifier(활용제한자)
-static	: 동적인 자바를 정적 성격 부여
-final	: 수정 불가
-abstract	: 추상적 성격 부여
+├access modifier(접근제한자)
+│ ├─public : 어디서나 접근 가능(패키지가 달라도 접근 가능)
+│ ├─protected : 패키지가 달라도 상속 관계에서는 접근 가능
+│ ├─생략, default : 같은 패키지 내에서 접근 가능
+│ └─pricate	: 선언한 클래스 내에서만 접근 가능
+└usage modifier(활용제한자)
+  ├─static	: 동적인 자바를 정적 성격 부여
+  ├─final	: 수정 불가
+  └─abstract	: 추상적 성격 부여
 
 [public | final or abstract] class 클래스이름 [extends 부모클래스이름]
 	[implements 슈퍼인터페이스이름, ...]{ 

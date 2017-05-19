@@ -186,7 +186,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			DBUtil.close(rs);
 			DBUtil.close(stmt);
 		}
-		return 1;
+		return 0;
 	}
 
 }
