@@ -83,7 +83,7 @@ new 생성자([args]);
 ------------------------------------- 4 일차 -------------------------------------
 
 다형성 관련 modifier
-access modifier : public > pritected > 생략(default) > private
+access modifier : public > protected > 생략(default) > private
 usage modifier : static, final, abstract
   static : 동적인 java를 정적으로
   final : 수정 불가
