@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- input type
+		 checkbox	 : 취미 등
+		 radio		 : 성별 등
+		 button		 : 액션을 수행한다. (ex)전송, 저장, 검사, ...
+		 hidden		 : 숨겨서 같이 전송할 옵션 값
+		 submit		 : 해당 입력 내용을 서버에 전송한다
+	  input name	 : 전송되는 값의 이름
+	  input value	 : 입력 기본값 
+-->
+<!-- ctrl + shift + / : 블럭 선택한 부분을 주석처리 한다. -->
+<!-- post, get차이는 주소창에 전송값이 표시 되나 안되나에 따라 처리를 달리 해줘야하기 때문에 상황에 따라 사용함 -->
+	<form action="InputTest.jsp" ><!-- method="post" enctype="multipost/form-data"> -->
+	<fieldset>
+		<legend>필수 항목</legend>
+		id   : <input type="text" name="id" value="kdn" placeholder="아이디" /><br/> 
+		pw   : <input type="password" name="pw" placeholder="비밀번호" /><br/>
+	</fieldset> 
+		취미 : <input type="checkbox" name="hobby" value="read" />독서
+			   <input type="checkbox" name="hobby" value="movie" />영화
+			   <input type="checkbox" name="hobby" value="coding" />코딩<br/> 
+		성별 : <input type="radio" name="gender" value="m" />남성 
+			   <input type="radio" name="gender" value="f" />여성<br/>
+		<!-- 파일 : <input type="file" name="fileup" /><br/> -->
+		hidden <input type="hidden" name="pageNo" value="1" /><br/>
+		직업 : <select name="job" size="2" multiple="multiple">
+			<option value="programmer">programmer</option>
+			<option value="designer">designer</option>
+			<option value="architect">architect</option>
+			<option value="publisher">publisher</option>
+		</select><br/>
+		<textarea rows="5" cols="30" placeholder="내용을 입력하시오." draggable='false'></textarea><br/>
+																		<!-- vertical... 왜 안돼지 ㅋㅋㅋㅋ  -->
+		수량 : <input type="number" min="1" max="10" name="quantity" /><br/>
+		날짜 : <input type="date" name="reservation_date" /><br/>
+		email : <input type="email" name="email" /><br/>
+		url : <input type="url" name="ssnurl" /><br/>
+		
+		<p>
+		<input type="reset" value="취소" />
+		<input type="submit" value="전송" /><br/> 
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
