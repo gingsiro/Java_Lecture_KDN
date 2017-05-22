@@ -1,10 +1,5 @@
 package com.kdn.model.domain;
 
-import java.sql.SQLException;
-
-import com.kdn.model.dao.BookDaoImpl;
-import com.kdn.util.DBUtil;
-
 /**
  * 웹의 한 페이지를 표시하기 위한 정보
  */
@@ -21,8 +16,6 @@ public class PageBean {
 	private int start = 1;
 	/** 현재 페이지 끝 번호 */
 	private int end = interval;
-	
-	private int total;
 
 	public PageBean() {	}
 
@@ -95,15 +88,5 @@ public class PageBean {
 	public void setEnd(int end) {
 		this.end = end;
 	}
-
-	public int getTotal() throws SQLException {
-		return new BookDaoImpl().getCount(DBUtil.getConnection(), this);
-	}
-
-	public void setTotal(int total) {
-		this.total = total;
-	}
-	
-	
 
 }

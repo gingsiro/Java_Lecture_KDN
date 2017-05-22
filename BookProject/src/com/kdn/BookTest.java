@@ -44,14 +44,14 @@ public class BookTest {
 		 for (Book book : books1) {
 				System.out.println(book);
 			}
-		 System.out.printf("jaen에서 출판한 책 개수 : %d\n", bean.getTotal());
+		 //System.out.printf("jaen에서 출판한 책 개수 : %d\n", bean.getTotal());
 		 System.out.println("===============================책 제목으로 책 정보 검색==============================");
 		 PageBean bean2 = new PageBean("title", "s", 1);
 		 List<Book> books2 = bookService.searchAll(bean2 );
 		 for (Book book : books2) {
 				System.out.println(book);
 			}
-		 System.out.printf("jaen에서 출판한 책 개수 : %d\n", bean2.getTotal());
+		 //System.out.printf("jaen에서 출판한 책 개수 : %d\n", bean2.getTotal());
 		 System.out.println("===============================책 정보 삭제=======================================");
 		 bookService.remove("1113");
 		 List<Book> books3 = bookService.searchAll(new PageBean(null, null, 1) );

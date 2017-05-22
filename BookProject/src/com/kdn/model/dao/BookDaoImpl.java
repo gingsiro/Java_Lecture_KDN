@@ -163,7 +163,6 @@ public class BookDaoImpl implements BookDao {
 	public int getCount(Connection con, PageBean bean) throws SQLException {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		ArrayList<Book> books = new ArrayList<Book>();
 		try {
 			con = DBUtil.getConnection();
 			String key = bean.getKey();
