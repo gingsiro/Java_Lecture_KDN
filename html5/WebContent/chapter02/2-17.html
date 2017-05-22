@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1" align="center" bgcolor="ffc0ff">
+		<caption>사원 목록</caption> <!-- 캡션을 쓰면 캡션 간격을 조절하기 불편하여 자주 안사용함 -->
+		<tr height="40"><th width="100" align="center">이름</th><th>주소</th></tr>
+		<tr><td align="center">KDN</td><td>전라남도 나주시</td></tr>
+		<tr><td align="center">KDG</td><td>서울시 성북구</td></tr>
+	</table>
+
+	<table border="1" align="center" bgcolor="ffff00">
+		<caption>테이블 병합 예제</caption> <!-- 캡션을 쓰면 캡션 간격을 조절하기 불편하여 자주 안사용함 -->
+		<tr height="40"><th width="100" align="center">이름</th><th>주소</th></tr>
+		<tr><td align="center" colspan="2">KDN</td></tr>
+		<tr><td align="center" rowspan="2">KDN</td><td>전라남도 나주시</td></tr>
+		<tr><td>서울시 성북구</td></tr>
+	</table>
+	
+	<table>
+	<caption>주문 내역</caption>
+		<thead>
+			<tr><th>이름</th><th>개수</th><th>단가</th><th>금액</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>마카펜</td><td align="center">3</td><td align="right">1500</td><td align="right">4500</td></tr>
+			<tr><td>마우스</td><td align="center">1</td><td align="right">15000</td><td align="right">15000</td></tr>
+		</tbody>
+		<tfoot>
+			<tr><td colspan="3" align="right">주문금액 : </td><td>19500</td></tr>
+		</tfoot>
+	</table>
+</body>
+</html>

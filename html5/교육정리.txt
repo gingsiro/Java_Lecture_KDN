@@ -1,0 +1,146 @@
+
+--------------------------------------- 1 일차 ---------------------------------------
+
+Cross Browsing - 브라우저 마다 다른 표현 방식을 맞춰 코드를 달리해 적용하는 것
+Hyper Text Markup Language - 링크, 이미지 등을 표현하는 언어
+Hyper Text Transfer Protocol - HTML을 지원하는 프로토콜
+
+
+    Client			   	 		WebServer
+(Web Browser-Chrome)	   	    │
+ ┌HTML Engine					│
+┌┤			   	    			│
+│└JavaScript Engine	   	   	 	│
+└>Network Module	   	   		│
+     │	│		   	    		│
+     │  └──────────────────────>│
+     │	      a.html 요청	    │
+     │  <───────────────────────┤
+     │	      a.html 응답	    │
+     └─────────────────────────>│
+				img 요청		│
+        <───────────────────────┤
+				img 응답
+
+
+HTML5는 아직 작성중 상태이다.
+
+http://caniuse.com => html5, css3 지원 확인
+
+W3C - 
+
+WHATWG - activeX를 사용하지 않는 표준에 대한 제정 기관
+
+WebApplication 1.0 표준 을 HTML5 표준이라고 부름
+
+HTML5
+ - Semantic 웹 구현 및 지원
+ - CSS3 스타일시트 지원
+ - 기존 웹표준보다 빠름
+
+http://tomcat.apache.org
+Apache Tomcat 8.0.44 설치
+
+eclipse
+ - window > Preferences > Web > CSS, HTML, JSP > Encoding(UTF-8)변경
+ - window > Preferences > General > WebBrowser > Chrome 으로 변경
+
+C:\apache-tomcat-8.0.44\conf\server.xml > 주석 없는 connector:8080 찾아 8088로 변경
+#Oracle 에서 8080을 사용중이기에 8088로 변경
+중간에 URIEncoding="UTF-8" 로 변경
+utf-8 로 변경하면 오히려 이상할 수도 있음. 따라서 다시 제거해주면 됨.
+
+Server 생성 부분 정리 다른 사람 참조하기
+Server 생성 하면
+C:\apache-tomcat-8.0.44 경로가 
+C:\kdn\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\ 로 복사됨
+실제 워크 수행 경로가 workspace 밑으로 변경됨
+tmp0 경로가 tomcat Workspace 가 됨.
+바탕화면에 경로 바로가기 설치 후 활용
+
+Server 먼저 구동 하고 (프로젝트 생성 시 바로 서버를 잡아 줌)
+Eclipse 새 프로젝트 생성 
+Dynamic Web Project로 생성
+
+┌─────────────┐
+│ Web Content │<= Context (HTML5) : 웹앱의 이름(현재 프로젝트의 [Context]는 [HTML5]이다)
+└──────┬──────┘
+	   │
+	   ├[WEB-INF] : Class 와 xml만 배치
+	   │   ├[lib] : 타 클래스(jar) 라이브러리들이 배치되는 곳
+	   │   ├[classes] : 작성 Class들이 배치되는 곳
+	   │   └[web.xml] : context에 대한 환경 설정
+	   ├[chapter02]
+	   │   ├[code2-1.html] :  <a href="./code2-2.html"> </a>
+	   │   │			   => <a href="code2-2.html"> </a>
+	   │   │			   => <a href="../chapter03/code3-1.html"> </a>
+	   │   └[code2-2.html]
+	   ├[CHAPTER03]
+	   │   ├[code3-1.html]
+
+/ (root)┬ tomcat : http://IP:Port/
+	    └ 그 외  : http://IP:port/context/
+
+
+	: head는 화면에 표시 X
+    ┌head┬meta  : 환경설정
+html┤    └title : 제목
+    └body
+
+수행 순서 : head -> body
+
+C:\kdn\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps
+> 위 경로가 실행 시 배포가 안될 때 html, jsp 파일들을 직접 때려넣어도 배포 가능
+
+In-Line 요소 : 태그를 붙여도 한줄에 계속 표기 됨
+
+Box 요소 : 태그를 붙이면 엔터를 쳐져서 출력이 됨
+
+
+경로(URI) ┬ 절대경로(URL : Unified Resource Location)
+	  	  │ 	├ local : drive 명(root) 부터 표시 (C:\kdn\workspace\a.txt)
+	      │   	└ Net : Protocol부터 표시 (http://IP:port/context/directory/file)
+	  	  │									IP:port는 Domain Name으로 변경 가능
+	  	  │									port가 80일땐 생략 가능(기본포트)
+	  	  └ 상대경로(URN : Unified Resource Name) : 현재 작업중인 곳을 기준으로 표시
+	  	  		.		: 기준경로
+	  	  		..		: 상위경로
+	  	  		[.]/	: 하위경로 표시
+
+A:// B / C / D
+
+A : Protocol
+B : Server
+C : Location
+D : Information
+
+내부 자원을 표시 할 땐 절대경로 쓰면 절대 안됨
+외부 자원을 표시 할 때나 절대경로를 사용
+내부 자원을 표시 할 때는 상대경로를 사용
+
+
+table 태그
+<tr> 열 태그
+<td> 한칸 태그(일반)
+<th> 한칸 태그(제목)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
