@@ -141,6 +141,21 @@ table 태그
 └───────────────────────────┘
 
 
+web 데이터 처리 방식
+GET		: select
+POST	: update
+PUT		: insert ┐ 서버 자원 문제 때문에 
+DELETE	: delete ┘ 웬만하면 지원 X
+
+HTTP 프로토콜의 기본 전송 방식 : GET
+1. 주소창에서 요청할 때
+2. <a> 태그 요청 시
+3. form양식에서 method를 생략했을 때
+
+
+--------------------------------------- 2 일차 ---------------------------------------
+
+
 CSS (Cascading Style Sheets) 지정 방법
 <html> 
 	<head> 
@@ -157,6 +172,8 @@ CSS (Cascading Style Sheets) 지정 방법
 </html>
 1 < 2 < 3 순서로 Strong적용
 
+
+
 선택자 { 속성명 : 값 ;
 		 속성명 : 값 ;
 		 	   .
@@ -164,8 +181,17 @@ CSS (Cascading Style Sheets) 지정 방법
 		 	   .     ;
 	   }
 
-선택자 : tag명, .class명, #id명
- 
+선택자 :  *    : 모든 요소(element = tag)에 적용
+		 tag명 : 해당 tag에 css를 적용
+	  .class명 : 지정한 class에 css를 적용
+	  	 #id명 : 지정한 id 에 css를 적용
+
+
+<tag명 class="클래스명" id="id명">
+						id명은 식별 가능하도록 !
+
+
+
 CSS의 기본 속성 정도는 암기할 필요가 있다.
 background-color 배경색
 border 테두리
@@ -173,28 +199,26 @@ color 글자 색상
 inline요소 인지 박스형 요소 인지에 따라 기본 속성 구분
 
 
---------------------------------------- 2 일차 ---------------------------------------
+검색
 
-web 데이터 처리 방식
-GET		: select
-POST	: update
-PUT		: insert
-DELETE	: delete
+	html      
+ ┌───┴───┐
+head 	body
+	  ┌──┴──┐
+   article div
+   ┌──┴──┐
+ aside
+   │
+  div
 
-
-
-
-
-
-
-
-
-
+body   div 후손(공백)
+body > div 자식(꺽쇠)
+body>article>aside>div : 경로를 다써줘야하지만 빠르다.
 
 
-
-
-
+선택자[속성명]
+input[type]
+h1[data]
 
 
 

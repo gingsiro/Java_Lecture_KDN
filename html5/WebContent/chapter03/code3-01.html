@@ -4,9 +4,20 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<style type="text/css">
-		* { color : gray; }
-		a { color : black; }
-		
+		/* body h1 { background-color : pink ;
+				  color : gray ; } */
+		/* body>section>article>h1 { background-color : pink ;
+				  				  color : gray ; } */
+		/* body>section h1{ background-color : pink ;
+				  		 color : gray ; } */
+		#main h1 { background-color : pink ;
+				   color : gray ; }
+		* { color : gray ; }
+		a { color : black ; }
+		.aquabox { background-color : aqua ;}
+		.whiteColor{ color : white ; }
+		#home { background-color : gray ;
+				color : white ; }
 	</style>
 </head>
 <body>
@@ -15,12 +26,12 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a href="#">Menu - 1</a></li>
-			<li><a href="#">Menu - 2</a></li>
-			<li><a href="#">Menu - 3</a></li>
+			<li><a href="#" id="home">Menu - 1</a></li>
+			<li><a href="#" class="aruabox">Menu - 2</a></li>
+			<li><a href="#" class="aruabox whiteColor">Menu - 3</a></li>
 		</ul>
 	</nav>
-	<section>
+	<section id="main">
 		<article>
 			<h1>Lorem ipsum dolor sit amet</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
