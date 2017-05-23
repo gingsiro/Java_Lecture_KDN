@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.body {
+	float: left;
+}
+
+ul, div {
+	text-align: center;
+	width: 400px;
+	height: 50px;
+	border-radius: 5px 5px 5px 5px;
+	padding-left: 0px;
+}
+
+li {
+	list-style: none;
+	display: inline-block;
+	color: #578ca9;
+	background-color: #7bc4c4;
+	width: 60px;
+	height: 44px;
+	padding: 3px;
+}
+
+span {
+	display: inline-block;
+	color: #578ca9;
+	background-color: #7bc4c4;
+	width: 80px;
+	height: 44px;
+	padding: 3px;
+}
+
+li:hover {
+	background-color: #93a9d1;
+	padding: 2px;
+	border-style: dashed;
+	border-width: 1px;
+	border-color: #ad5e99;
+	color: #f7caca;
+}
+
+li:hover>ul {
+	display: block;
+	width: 150px;
+	height: 300px;
+	background-color: #93a9d1;
+	color: #f7caca;
+}
+li:hover>ul>li{
+	display: block;
+}
+
+.submenu{
+display:none;
+}
+</style>
+</head>
+<body>
+	<ul>
+		<li>Menu 1
+			<ul class="submenu">
+				<li>subMenu 1</li>
+				<li>subMenu 2</li>
+				<li>subMenu 3</li>
+			</ul>
+		</li>
+		<li>Menu 2</li>
+		<li>Menu 3</li>
+	</ul>
+</body>
+</html>

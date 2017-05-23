@@ -235,7 +235,7 @@ relative, absolute는 자기자신을 포함한 부모로부터의 상대값
 absolute는 자기부모 기준 절대좌표 => 결과적으로 상대좌표
 
 
-
+중앙 정렬은 무조건 margin 0 auto;
 
 
 
