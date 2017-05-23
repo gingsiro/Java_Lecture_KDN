@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	position: relative;
+	border: 1px solid black;
+}
+
+#d1 {
+	width: 200px;
+	height: 200px;
+	left: 100px;
+	top: 100px;
+}
+
+#d2 {
+	width: 100px;
+	height: 100px;
+	left: 100px;
+	top: 100px;
+}
+
+.d2 {
+	width: 100px;
+	height: 100px;
+	left: 100px;
+	top: 100px;
+}
+
+.d3 {
+	background-color: red;
+	z-index: 3;
+}
+
+.d4 {
+	background-color: blue;
+	z-index: 4;
+	opacity: 0.5;
+}
+</style>
+</head>
+<body>
+	<div id="d1">d1
+		<div class="d2 d3">d2</div>
+		<div class="d2 d4">d3</div>
+	</div>
+</body>
+</html>

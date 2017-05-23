@@ -2,9 +2,18 @@
 <html>
 <head>
     <title>CSS3 Selector Basic Page</title>
+    <style type="text/css">
+    	input[type*=t] {background-color : teal ;
+    					color : white ;}
+    	input[type=password] {background-color : aqua ;}
+    	input[data-value] {background-color : lime ;}
+    	input[data-value=c] {background-color : maroon ;}
+    </style>
 </head>
 <body>
     <form>
+    	<input type="text" data-value="a" />
+    	<input type="text" data-value="c" />
         <input type="text" />
         <input type="password" />
     </form>

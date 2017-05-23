@@ -3,9 +3,11 @@
 <head>
     <title>CSS3 Selector Basic</title>
     <style>
-        a { text-decoration: none; }
-        a:visited { color: red; }
-
+        a { text-decoration: none; } /* 글자에 밑줄 제거 */
+        /* a:visited { color: red; } */
+        a:visited { color: #f3cf55; } 	/* Pantone 2017 S/S Primrose Yellow */
+		a:link {color : #578ca9;}		/* Pantone 2017 S/S Niagara */
+		a:hover {color : #88b04b;} 		/* Pantone 2017 S/S Greenary */
         /* href 속성을 가지고 있는 a 태그의 뒤의 공간에
            "- (href 속성)"을 추가합니다. */
         a:link::after { content: ' - ' attr(href); }

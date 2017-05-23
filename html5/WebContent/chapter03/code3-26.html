@@ -4,6 +4,8 @@
     <title>CSS3 Selector Basic</title>
     <style>
         ul { overflow: hidden; }
+        
+        /* 메뉴형태로 옆으로 표시할때 사용 */
         li {
             list-style: none;
             float:left; padding: 15px;
@@ -12,8 +14,10 @@
         li:first-child { border-radius: 10px 0 0 10px; }
         li:last-child { border-radius: 0 10px 10px 0; }
 
-        li:nth-child(2n) { background-color: #FF0003; }
-        li:nth-child(2n+1) { background-color:#800000; }
+        /* li:nth-child(2n) { background-color: #FF0003; } */
+        li:nth-child(2n) { background-color: #f2ddde; }
+        /* li:nth-child(2n+1) { background-color:#800000; } */
+        li:nth-child(2n+1) { background-color: #89abe3; }
     </style>
 </head>
 <body>

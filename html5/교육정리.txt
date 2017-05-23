@@ -212,13 +212,45 @@ head 	body
   div
 
 body   div 후손(공백)
-body > div 자식(꺽쇠)
+body > div 자식(꺾쇠)
 body>article>aside>div : 경로를 다써줘야하지만 빠르다.
 
 
 선택자[속성명]
 input[type]
 h1[data]
+
+
+
+		body
+	  ┌──┴──┐
+   article div
+	  │
+ 	 ui
+   ┌──┴─┬────┬────┬────┐
+  li   li   li   li   li
+
+
+relative, absolute는 자기자신을 포함한 부모로부터의 상대값
+absolute는 자기부모 기준 절대좌표 => 결과적으로 상대좌표
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
