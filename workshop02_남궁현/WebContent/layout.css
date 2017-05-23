@@ -28,6 +28,10 @@ nav>ul>li>a:hover {
 	color: white;
 }
 
+.selected>a{
+	color: white;
+}
+
 .subscribe>a{
 	padding-left:25px;
 	background-image: url('./img/rss.png');
@@ -66,6 +70,7 @@ nav>ul>li>a:hover {
 
 #intro>img {
 	position: relative;
+	border-radius: 15px 15px 15px 15px;
 	float: right;
 	top: -40%;
 	width: 65%;
@@ -97,7 +102,7 @@ nav>ul>li>a:hover {
 	position: relative;
 	left: 5%;
 }
-#content>a side>section>ul{
+#content>aside>section>ul>li{
 	list-style: none;
 }
 #content>aside>section>ul>li>a{
@@ -131,6 +136,11 @@ nav>ul>li>a:hover {
 }
 .blogPost>div>p>mark {
 	font-size: 15px;
+}
+
+#actors>article a{
+	font-weight: bold;
+	display: block;
 }
 
 #actors>article:nth-child(2n){
