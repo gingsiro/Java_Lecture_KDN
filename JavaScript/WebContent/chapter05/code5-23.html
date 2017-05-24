@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 콜백함수 : 함수를 매개변수로 전달해서 호출 */
+	function a(f){
+		f();
+	}
+	//함수를 매개변수로 전달하기 1
+	a( function(){
+		console.log('매개변수 함수 전달');
+	});
+	//함수를 매개변수로 전달하기 2
+	var b = function(){
+		console.log('익명함수를 매개변수로 전달하기 2');
+	}
+	a(b);
+	//함수를 매개변수로 전달하기 3
+	function c(){
+		console.log('어떤 함수도 매개변수로 전달 가능');
+	}
+	a(c);
+</script>
+</head>
+<body>
+
+</body>
+</html>

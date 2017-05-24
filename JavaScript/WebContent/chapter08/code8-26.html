@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var array=[52, 273, 103,32];
+	
+	array.sort(); //문자열로 인식되서 오름차순 정렬
+	alert(array);
+	
+	//숫자로 정렬하기 위해서는 매개변수로 함수를 전달
+	array.sort(function(left, right){ return left-right });
+	alert(array);
+	array.sort(function(left, right){ return left-right });
+	alert(array);
+</script>
+</head>
+<body>
+
+</body>
+</html>

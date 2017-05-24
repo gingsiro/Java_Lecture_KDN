@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 현재 창을 띄운 창을 opener
+	// 현재창은 self
+	
+	function useId(){
+		self.close();
+	}
+</script>
+</head>
+<body>
+<form action="idCheck.do" method="post">
+	<table align="center">
+		<tr><td colspan="2"> 검사할 아이디를 입력해 주세요.</td></tr>
+		<tr><td> 아이디 </td>
+			<td><input type="text" name="id"></td>
+		</tr>
+		<tr><td colspan="2"><input type="submit" value="검사"></td></tr>
+	</table>
+	<div id="content">
+		<a href="#" onclick="useId()">아이디 사용</a>
+	</div>
+</form>
+</body>
+</html>

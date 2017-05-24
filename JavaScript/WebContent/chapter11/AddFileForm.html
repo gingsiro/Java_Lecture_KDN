@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		var count = 0;
+		var addFile = document.getElementById('addFile');
+		addFile.onclick = function(event){
+			//event.target 이벤트가 발생한 객체
+			/* console.log(event.target);
+			console.log(event); */
+			
+			//<div id='item0'><input type='file' name='fileup' \/>
+			//	<button onclick='removeFile("item0")'>제거</button>
+			//</div>
+			var html = "<div id='item"+count+"'>"+count+"번 : <input type='file' name='fileup' />"
+					  +"<input type='button' onclick='removeFile("+count+")' value='제거'></div>";
+			
+			var content = document.getElementById('content');
+			content.innerHTML += html;
+			count++;
+		}
+	}
+	function removeFile(id){
+		var content = document.getElementById('content');
+		var removeItem = document.getElementById('item'+id);
+		content.removeChild(removeItem);
+		count--;
+	}
+</script>
+</head>
+<body>
+	<button id="addFile">파일 추가</button>
+	<form>
+		<div id="content">
+			
+		</div>
+	</form>
+</body>
+</html>

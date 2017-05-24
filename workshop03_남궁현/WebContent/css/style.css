@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0 auto;
+	width: 820px;
+	font: 75% Lucida Grande, Trebuchet MS;
+}
+
+section {
+	display: block;
+}
+
+section#reservation {
+	width: 800px;
+	float: left;
+	padding: 10px;
+	background-color: #DCF7EC;
+	/* background-color: #fbf0cc; */
+}
+
+section>div {
+	float:left;
+	padding: 30px;
+}
+
+header h2{
+
+	padding: 10px;
+	margin: 0;
+	background-color: #424242;
+	/* color: #65ac1c; */
+	color: #ffffff;
+	text-align: center;
+	vertical-align : middle;
+}

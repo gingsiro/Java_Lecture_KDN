@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>function 예제</title>
+<script type="text/javascript">
+	test();		//선언적 함수는 선언 전에 호출해도 됨
+	//data();	//익명 함수는 선언 전에 호출하면 에러 발생
+	
+	function test() {
+		console.log('test 함수 호출 됨');
+	}
+	
+	var data = function () {
+		console.log('익명 함수 호출 됨');
+	}
+	
+	test();
+	data();
+</script>
+</head>
+<body>
+
+</body>
+</html>

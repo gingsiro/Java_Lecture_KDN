@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function init(){
+		// url, 이름, future
+		var idCheck = open('IdCheck.html', 'child', 'width=300, height=150, left='+window.screenX+', top='+window.screenY+', location=0');
+		idCheck.moveTo(window.screenX, window.screenY);
+	}
+</script>
+</head>
+<body>
+	<a href="#" onclick="init()">아이디 검사</a>
+</body>
+</html>

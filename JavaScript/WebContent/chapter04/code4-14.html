@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var array=['포도 당', '사과', '바나나', '망고']
+	//객체를 반복시켜주는 반복문 for(반복변수 in 객체){ }
+	for(var i in array){
+		console.log(array[i])
+	}
+	
+	var data={name: 'kdn', address: '나주'} //JSON 데이터
+	var dataArr=[{name: 'kdn', address: '나주'},{name: 'nkh', address: '나주'}]
+	console.log(data.name)
+	console.log(data.address)
+	for(var i in dataArr){
+		console.log(dataArr[i])
+	}
+	for(var i in data){
+		console.log(i + ': ' + data[i])
+	}
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

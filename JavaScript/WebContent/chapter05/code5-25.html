@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 함수를 리턴하고 리턴 받은 함수 호출하기 */
+	
+	function returnFunction(){
+		return function(){ console.log('함수를 리턴해 보쟈 !')}
+	}
+	
+	var a = returnFunction();
+	a();					// 리턴 받은 함수 호출 1
+	returnFunction()(); 	// 리턴받은 함수 호출 2
+							// => [ returnFunction() ]() 와 같은 형태가 된것임
+</script>
+</head>
+<body>
+</body>
+</html>

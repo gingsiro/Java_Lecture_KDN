@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//함수의 매개변수와 리턴
+	function f(x){
+		var a = 10;
+		console.log('x : ' + x);
+		console.log(arguments.length);
+		for(var i in arguments){
+			console.log('인자정보 : ' + arguments[i]);
+		}
+		return x + a ;
+	}
+	
+	console.log( f(10) );
+	console.log( f() );			//NaN(Not a Number) : 숫자가 아니다
+	console.log( f(10, 20) );
+</script>
+</head>
+<body>
+
+</body>
+</html>
