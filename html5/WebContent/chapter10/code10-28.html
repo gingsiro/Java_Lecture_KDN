@@ -14,8 +14,8 @@
             position: absolute;
             left: 50%; top: 50%;
 
-            -webkit-transform-style: preserve-3d;
-            -webkit-animation: rint 10s infinite linear;
+            transform-style: preserve-3d;
+            animation: rint 10s infinite linear;
         }
 
         .item {
@@ -27,16 +27,16 @@
             background: green; 
         }
 
-        .item:nth-child(1) { -webkit-transform: rotateY(  0deg) translateZ(-200px); }
-        .item:nth-child(2) { -webkit-transform: rotateY( 60deg) translateZ(-200px); }
-        .item:nth-child(3) { -webkit-transform: rotateY(120deg) translateZ(-200px); }
-        .item:nth-child(4) { -webkit-transform: rotateY(180deg) translateZ(-200px); }
-        .item:nth-child(5) { -webkit-transform: rotateY(240deg) translateZ(-200px); }
-        .item:nth-child(6) { -webkit-transform: rotateY(300deg) translateZ(-200px); }
+        .item:nth-child(1) { transform: rotateY(  0deg) translateZ(-200px); }
+        .item:nth-child(2) { transform: rotateY( 60deg) translateZ(-200px); }
+        .item:nth-child(3) { transform: rotateY(120deg) translateZ(-200px); }
+        .item:nth-child(4) { transform: rotateY(180deg) translateZ(-200px); }
+        .item:nth-child(5) { transform: rotateY(240deg) translateZ(-200px); }
+        .item:nth-child(6) { transform: rotateY(300deg) translateZ(-200px); }
 
-        @-webkit-keyframes rint {
-            from { -webkit-transform: rotateX(-20deg) rotateY(0deg); }
-            to { -webkit-transform: rotateX(-20deg)  rotateY(360deg); }
+        @keyframes rint {
+            from { transform: rotateX(-20deg) rotateY(0deg); }
+            to { transform: rotateX(-20deg)  rotateY(360deg); }
         }
     </style>
 </head>
