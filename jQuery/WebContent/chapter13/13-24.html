@@ -1,24 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <script src="../js/jquery-2.1.1.js"></script>
-    <script>
-        $(function(){
-        	var value = $('option:selected').val();
-        	//.text() : 해당 태그의 바디 중 문자정보를 추출
-        	var text = $('option:selected').text();
-        	console.log(value);
-        	console.log(text);
-        });
-    </script>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function() {/* 
+	        	var value = $('option:selected').val();
+	        	//.text() : 해당 태그의 바디 중 문자정보를 추출
+	        	var text = $('option:selected').text();
+	        	console.log(value);
+	        	console.log(text); */
+		$('select').change(function() {
+			var value = $('option:selected').val();
+			//.text() : 해당 태그의 바디 중 문자정보를 추출
+			var text = $('option:selected').text();
+			console.log(value);
+			console.log(text);
+		})
+	});
+</script>
 </head>
 <body>
-    <select>
-        <option value='a'>Apple</option>
-        <option value='b'>Bag</option>
-        <option value='c'>Cat</option>
-        <option value='d'>Dog</option>
-        <option value='e'>Elephant</option>
-    </select>
+	<select>
+		<option value='a'>Apple</option>
+		<option value='b'>Bag</option>
+		<option value='c'>Cat</option>
+		<option value='d'>Dog</option>
+		<option value='e'>Elephant</option>
+	</select>
 </body>
 </html>
