@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="../js/jquery-2.1.1.js"></script>
+<!-- jquery 3.0^ 부터 변경된 함수호출방식 사용으로 인해 버전업 -->
+<script>
+	$(function() {
+		$('h1').click(function(event){
+			//console.log(event);
+			//console.log(this); //이벤트가 발생한 자기 자신
+			console.log($(this).text())
+		})
+	});
+</script>
+</head>
+<body>
+	<h1>Header-0</h1>
+	<h1>Header-1</h1>
+	<h1>Header-2</h1>
+</body>
+</html>

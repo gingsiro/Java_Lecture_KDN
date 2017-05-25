@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function(){
+		/* $('h3').css('background', 'yellow')
+			   .filter(':even').css('color', 'red'); */
+		$('h3').css('background', 'yellow')
+			   .filter(function(index){
+				   return index%3==0;
+			   }).css({
+				   background:'black', color:'white'
+			   });
+	});
+</script>
+</head>
+<body>
+	<h3>Header-0</h3>
+	<h3>Header-1</h3>
+	<h3>Header-2</h3>
+	<h3>Header-3</h3>
+	<h3>Header-4</h3>
+	<h3>Header-5</h3>
+</body>
+</html>

@@ -15,7 +15,7 @@
 			//<div id='item0'><input type='file' name='fileup' \/>
 			//	<button onclick='removeFile("item0")'>제거</button>
 			//</div>
-			var html = "<div id='item"+count+"'>"+count+"번 : <input type='file' name='fileup' />"
+			var html = "<div id='item"+count+"'>"+pad(count,2)+"번 : <input type='file' name='fileup' />"
 					  +"<input type='button' onclick='removeFile("+count+")' value='제거'></div>";
 			
 			var content = document.getElementById('content');
@@ -23,11 +23,14 @@
 			count++;
 		}
 	}
+	function pad(n, width) {
+		  n = n + '';
+		  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+	}
 	function removeFile(id){
 		var content = document.getElementById('content');
 		var removeItem = document.getElementById('item'+id);
 		content.removeChild(removeItem);
-		count--;
 	}
 </script>
 </head>

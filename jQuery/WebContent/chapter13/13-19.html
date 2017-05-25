@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+     <script src="../js/jquery-2.1.1.js"></script>
+    <script>
+      $(function(){
+    	 /* $('div li').css('color', 'gray'); //후손  */
+    	 $('div>ul>li').css('color', 'gray'); //자손
+      });
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>Apple</li>
+            <li>Bag</li>
+            <li>Cat</li>
+            <li>Dog</li>
+            <li>Elephant</li>
+        </ul>
+    </div>
+</body>
+</html>

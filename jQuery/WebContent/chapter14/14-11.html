@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function(){
+		//add('선택자') : 기존 선택자에 add함수의 선택자로 찾은 
+		//				  요소를 추가해서 한번에 처리
+		$('h1').css('background', 'gray').add('h2').css('float', 'left')
+	})
+</script>
+</head>
+<body>
+	<h1>Header-0</h1>
+	<h2>Header-1</h2>
+	<h1>Header-2</h1>
+	<h2>Header-3</h2>
+	<h1>Header-4</h1>
+</body>
+</html>

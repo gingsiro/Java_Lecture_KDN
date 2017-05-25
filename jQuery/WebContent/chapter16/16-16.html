@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.moveImg{
+	display: block;
+	position: fixed;
+	width: 100px;
+	left: 0px;
+	right: 0px;
+}
+</style>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function() {
+		$(document).mousemove(function(event) {
+			var x = event.pageX;
+			var y = event.pageY;
+			$('.moveImg').css({left:x, top:y})
+		})
+	});
+</script>
+</head>
+<body>
+	<img src="../images/Koala.jpg" class="moveImg">
+</body>
+</html>

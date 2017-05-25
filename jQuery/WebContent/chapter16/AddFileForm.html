@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function() {
+		var count = 0;
+		$('#addFile').click(addFileForm);
+	})
+
+	//jQuery 1.9버전
+	/* $('#removeBt').live('click', function(){
+		$(this).parent().remove();
+	}) */
+
+	function addFileForm() {
+		$(
+				"<div id='item"+count+"'>"
+						+ "<input type='file' name='fileup' />"
+						+ "<input type='button' onclick='removeFile(" + count
+						+ ")' value='제거'>" + "</div>").appendTo('#content');
+		count++;
+	}
+
+	function removeFile(item) {
+		$('#item' + item).remove();
+	}
+</script>
+</head>
+<body>
+	<button id="addFile">파일 추가</button>
+	<form>
+		<div id="content"></div>
+	</form>
+</body>
+</html>

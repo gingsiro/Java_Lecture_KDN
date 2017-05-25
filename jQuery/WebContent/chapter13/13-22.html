@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function(){
+		/* $('input[type=text]').css('background', 'yellow');
+		//val() input양식인 경우 value 값을 추출
+		var value= $('input[type=text]').val(); */
+		$('input:text').css('background', 'yellow');
+		//앞에 요소값을 안적어도 가능, 타입이 유니크하다면! 의도가 그렇다면! 가능
+		$(':password').css('background', 'yellow');
+		
+		//val() input양식인 경우 value 값을 추출
+		var value= $('input:text').val();
+		
+		console.log(value);
+		
+		
+	});
+</script>
+</head>
+<body>
+	<input type="text" value="hi" />
+	<input type="password" />
+	<input type="radio" />
+	<input type="checkbox" />
+	<input type="file" />
+</body>
+</html>

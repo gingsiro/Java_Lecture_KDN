@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function() {
+		$('img').css('width', 200);
+		setInterval(function(){
+			$('img').first().appendTo('body');
+		},2000);
+	});
+</script>
+</head>
+<body>
+	<img src="../images/Desert.jpg" />
+	<img src="../images/Hydrangeas.jpg" />
+	<img src="../images/Jellyfish.jpg" />
+	<img src="../images/Koala.jpg" />
+</body>
+</html>

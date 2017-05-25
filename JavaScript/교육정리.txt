@@ -42,3 +42,87 @@ onclick, onchange, onload
 퀴즈 
 1. 이벤트 거는거
 2. 돔 문서
+
+──────────────────────────────────────jQuery──────────────────────────────────────
+1. 자바스크립트 온로드
+window.onload = function(){
+};
+2. jQuery 레디
+$(document).ready(function(){
+});
+
+자바스크립트와 jQuery의 공통부분
+$() = jQuery를 의미
+
+차이점 : 1은 모든 페이지를 로딩했을 때 실행
+		 2는 HTML다운받아 DOM트리로 만들었을 때 실행
+
+//추후 프로젝트 할 시 nocache 를 꼭 붙여놓고 써야한다!!!! (보안상 이유?ㅋ)
+
+$( 선택자 | 태그 | 콜백함수 | 문서객체)
+
+$('선택자') : 선택자에 해당하는 tag를 찾아 jquery 객체로 만듬
+$('선택자').~~ ┐
+			~~ │  함수들이 많이 있음.
+			~~ ┘
+$('선택자').css('속성명', '값') : css의 속성에 값을 넣음
+
+선택자의 종류
+	* : 모든요소
+	태그명
+	.클래스명
+	#id명
+
+선택자 두개를 붙이면 and조건
+선택자 공백 선택자 : 후손
+선택자  >   선택자 : 자손
+
+입력양식 필터 선택자
+┌요소:checked
+└요소:selected
+
+prototype을 사용하는 경우 $ 기호가 겹쳐 충돌 발생
+$.conflict(); 해놓고 
+아래에서부턴 jQuery()로 코딩함
+
+$('<h1/>') : h1태그 생성
+$ : 태그 삭제
+
+$('h1').html() : h1내용 가져오기
+$('h1').html('내용') : h1에 내용을 넣기
+
+append, appendto
+before
+
+var attr = $('img').attr('src')
+ => attr 에 src 정보 가져오기
+$('img').attr('src', '../images/Jellyfish.jpg').attr('width', '100px');
+ => attr src와 width에 값 입력하기
+
+setInterval  외워야함
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function() {
+		$('h1').click(function() {
+			/* $(this).css('color', 'red') */
+			/* $(this).html($(this).html()+' Click')
+			$(this).off() */
+			$('h1').one('click', function() {
+				$(this).html($(this).html() + ' Click')
+			})
+		})
+	});
+</script>
+</head>
+<body>
+	<h1>Header-0</h1>
+	<h1>Header-1</h1>
+	<h1>Header-2</h1>
+</body>
+</html>
