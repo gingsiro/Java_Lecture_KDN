@@ -1,15 +1,20 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-   <script src="../js/jquery-2.1.1.js"></script>
-    <script>
-        $(function () {
-           
-        });
-    </script>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function() {
+		$(':checkbox').change(function(){
+			console.log($(this).val());
+		})
+	});
+</script>
 </head>
 <body>
-    <h1>Start: </h1>
-    <h1>Start: </h1>
+	<form action="" id='frm'>
+		<input type="checkbox" value='read' id='hobby'>독서하기
+		<input type="checkbox" value='movie' id='hobby'>영화감상
+		<input type="checkbox" value='music' id='hobby'>악기연주
+	</form>
 </body>
 </html>

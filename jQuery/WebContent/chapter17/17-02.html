@@ -1,18 +1,30 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-   <script src="../js/jquery-2.1.1.js"></script>
-    <script>
-        $(function () {
-           
-        });
-    </script>
+<style type="text/css">
+	.page{
+		display:none;
+	}
+</style>
+<script src="../js/jquery-2.1.1.js"></script>
+<script>
+	$(function() {
+		$('#loginbt').click(function() {
+			/* $('.page').toggle('slow'); */
+			/* $('.page').fadeToggle('slow'); */
+			$('.page').slideToggle('normal');
+		})
+	});
+</script>
 </head>
 <body>
-    <button>Toggle Show</button>
-    <div class="page">
-        <h1>Lorem ipsum dolor sit amet</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-    </div>
+	<span id='loginbt'>로그인</span>
+	<div class="page">
+		<form id="frm">
+			아이디: <input type="text" id="id" name="id"/><br/>
+			비밀번호: <input type="text" id="pw" name="pw"/><br/>
+			<input type="submit" value="로그인" />
+		</form>
+	</div>
 </body>
 </html>
