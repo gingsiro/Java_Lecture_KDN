@@ -1,4 +1,4 @@
-package chapter02;
+package chapter03;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
