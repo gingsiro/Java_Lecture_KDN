@@ -5,9 +5,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#msg{
+	color : red;
+	font-size : 20px;
+	font-style : bold;
+}
+</style>
 </head>
 <body>
-	<form action="paramtest3.do" method="post">
+	<img src='images/Lighthouse.jpg' width='50'>
+	<img src='/javaee/images/Lighthouse.jpg' width='50'>
+	<%
+		String msg = (String) request.getAttribute("msg");
+		if(msg != null){
+			%>
+			<span id='msg'><%=msg %></span>
+			<%
+		}
+	%>
+	
+	<form action="login.do" method="post">
 		<table align="center">
 			<tr>
 				<td>아이디</td>

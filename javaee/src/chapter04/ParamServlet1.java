@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ParamServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		//request.setCharacterEncoding("UTF-8"); //필터 적용하여 필요 없음
 		
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
@@ -22,7 +22,7 @@ public class ParamServlet1 extends HttpServlet {
 		String email = request.getParameter("email");
 		String[] hobby = request.getParameterValues("hobby");
 		
-		response.setCharacterEncoding("UTF-8");
+		//response.setCharacterEncoding("UTF-8"); //필터 적용하여 필요 없음
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>		<!-- html에 대한 Document Type 지정 -->"); 
 		out.println("<html>				<!-- html 시작 root 태그 -->               ");

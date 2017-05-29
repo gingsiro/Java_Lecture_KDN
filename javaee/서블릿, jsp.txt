@@ -1,3 +1,4 @@
+─────────────────────────────────── 1일차 ───────────────────────────────────
 HTTP            ┌────────────── CGI ──────────────┐
 	    요청							┌ Program┐
 ┌──┐ ----------> ┌──┐-----------------> │동적으로│ ----->┌────┐
@@ -159,33 +160,198 @@ ServletContext
 서블릿에 대한 모든 환경정보를 가지고 있는 녀석
 
 
+─────────────────────────────────── 2일차 ───────────────────────────────────
+
+client -> web.xml <-> Filter <-> HelloServlet
+	hello.do		Encoding
+					인증검사
+					보안
+					등등...
+
+.do에 * (모든것)을 쓸때 앞에 슬래시 쓰지 않아도 됨 
+
+doFilter(request, response)
+지정된 경로에 연결된 다른 Filter나 Servlet으로 이동하는 기능
 
 
 
+JSP
+
+jsp -> .java -> 실행
+
+주석 <%-- 자바코드 --%>  : jsp -> .java 때 사라짐 
+	 <%// 자바코드 %>	 : .java -> 실행 때 사라짐
+코드 <% 자바코드 %>		 : jsp -> .java 때 코드가 _jspService() 바디에 추가
+							지역변수로 선언됨(jspService 메서드의 바디에 추가되니까)
+	 <%= 내용 %>		 : out.print("내용");, 세미콜론 들어가면 안됨
+	 						_jspService()바디에 추가
+	 <%! 속성, 메서드 선언 %>
+
+servlet vs jsp
+jsp 가 더 무겁다.
+화면은 jsp 로 만들어주고
+MVC 패턴에서 
+Model(service, dto, dao)은 Java로
+View는 HTML과 JSP로
+Controller는 Servlet으로 작성한다.
+
+<%@ directive %>
+	├ page		: JSP 페이지 환경설정
+	├ include	: JSP, HTML, TXT 등의 페이지를 현재 페이지에 포함
+	└ taglib	: 작성된 사용자 정의 태그를 사용하기 위해 등록
+
+Page 지시자
+language	: java외 다른언어 사용 불가, 생략 
+extends		: jsp외 다른걸 상속받으면 기능 불가, 생략
+import		: <%@ page import="com.kdn.model.domain.*, ..." %>
+errorPage	: <%@ page errorPage = "errorHandle.jsp"%>
+			  errorHandle.jsp
+			  	<%@Page isErrorPage = "true" %> //Exception 내장 객체 사용
+			  									  에러메세지를 얻어올 수 있음
+			  	<%= exception = ~~ %>
+			 위와 같은 형태로 errorPage 설정
+			 throws 와 같은 방식으로 이해할 수 있음
+			 ## ErrorPage로 이동 시 Forward 로 이동 됨!!!!
+
+	 a.jsp 요청
+ ┌──┐ ----> ┌─────────────────────────────┐
+ └──┘   ┌───────┐  a.jsp		b.jsp	  │
+client  │header	│->┌───────┐    ┌───────┐ │
+		│body	│  │┌Redirect┐->│	    │ │
+		│...	│  └│경로변경│  └───────┘ │
+		└───────┘	└────────┘	 		  │
+Request		│							  │
+요청Packet	└─────────────────────────────┘
+
+	 a.jsp 요청
+ ┌──┐ ----> ┌─────────────────────────────┐
+ └──┘   ┌───────┐  a.jsp		b.jsp	  │
+client  │header	│  ┌───────┐    ┌───────┐ │
+		│body	│---Forward---->│b.jsp  │ │
+		│key	│  └───────┘    └───────┘ │
+		│value	│						  │
+Request	└───────┘						  │
+임시저장소	└─────────────────────────────┘
+
+
+scope : 저장 공간
+	├ Request		(HTTPServletRequest)
+	│	request가 유지되는 상황(forward로 페이지 이동한 상황)에서
+	│	request에 정보를 저장해서 공유할 수 있다.
+	├ Session		(HTTPSession)
+	│	클라이언트가 서버에 처음 요청해서 브라우저를 종료할 때 까지
+	│	session에 정보를 저장해서 공유 할 수 있다.
+	└ Application	(ServletContext)
+		서버가 로딩 되면서 context를 초기화 시킴 
+		서버가 종료 되면서 context를 해제 시킴
+		 => 서버가 로딩된 때부터 서버가 종료될 때 까지 
+			context내의 모든 서블릿(jsp포함)이 정보를 공유할 수 있다.
+
+ - public void setAttribute(String name, Object value) : name 값으로 value를 저장
+ - public Object getAttribute(String name) : name에 해당하는 value를 추출
+ - public void removeAttribute(String name) : name에 해당하는 value를 삭제
+
+
+##쿠키/세션##
+쿠키정보는 항상 요청 패킷에 들어간다. 사용할지 안할지에 달린것
+
+			was
+ ┌──┐ ---->   ┌────────────────┬────────────┐
+ └──┘   	  │				   │HTTPSession │
+Client		  │				   │├JSessionID │ 음수쿠키발행
+└Cookie		  └────────────────┴────────────┘
+ └JSessionID   HTTPSession session = request.getSession();
+ 			    
+			
+JSessionID는 브라우저 종료되면 삭제
+항상 처리가 모두 끝나고 나면 쿠키,세션을 삭제 해 주어야 한다. 
+ 
+session 만료
+1. 브라우저를 종료
+	- 메모리에만 저장되는 JSESSIONID가 해제되어 만료됨
+2. invalidate()
+	- 새로운 JSESSIONID를 부여해 기존 session에 접근 불가되며 만료됨
+3. setMaxInactiveInterval(int sec)
+	- 비활성 대기시간동안 접근 없을 시 invalidate
+4. web.xml에서 session-timeout을 설정
+	- <session-config>
+			<session-timeout>분</session-timeout>
+	  </session-config>
+	- 지정된 시간동안 해당 context전체에 해당 session 요청이 없을 시 invalidate 
+
+
+forward 시 경로가 context로 변경되므로 
+member/login.jsp
+에 있는 경로 탐색자가 혼란이 있을 수 있다.
+1. index.jsp 부터 시작해 기준경로를 context로만 준다.
+	이후 모든 페이지를 포워드 한다.
+2. context경로를 추출해 context를 기준으로 경로 설정
 
 
 
+<%@ include file="url" %>
+				  └─ url pattern은 X -> jsp 이런거 안됨
+<jsp:include page="url | url-pattern"/>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## useBean
+ - bean을 기본생성자로 생성
+ - 지정한 scope( request | session | application )에 저장된 객체가 있으면
+   추출하고 없으면 기본 생성자로 생성해서 저장
+ 형식]
+  <jsp:useBean id="식별자" class="패키지를 포함한 클래스 이름"
+  			  [scope='page|request|session|application']
+  			  [type='super type'] />
+	scope 생략 시 기본값 = page(jsp 페이지 내에서 공유 하는 pageContext)
+	type 생략 시 기본값 = class와 동일
+ ex)
+ <jsp:useBean id="member" class="com.kdn.model.domain.Member"
+ 			  scope="session" />
+ ==> <%@ page import="com.kdn.model.domain.Member" %>
+ 	 <% Member member = (Member) session.getAttribute("member");
+ 	 	if(member==null){
+ 	 		member = new Member();
+ 	 		session.setAttribute("member", member);
+ 	 	} %>
+		// scope에 따라 session이냐 다른 스코프냐로 사용이 달라짐
+		
+ !!!! 퀴즈 !!!!
+ useBean, 세션만료, jsp관련 스크립트들, forward/redirect
+ 
+ <jsp:setProperty name="useBean의 id" property="속성명" value="값"
+ 														param="form 양식의 이름" />
+ ex)
+ <jsp:setProperty name="member" property="name" param="name" />
+ ==> member.setName(request.getParameter("name"));
+ 
+ <jsp:setProperty name="useBean의 아이디" property="*" />
+ : 모든 속성의 속성명으로 폼양식의 데이터를 추출해서
+   request.getParameter("속성명") 속성에 설정 
+ 
+ <jsp:setProperty name="member" property="*" />
+ member.setName(request.getParameter("name"));
+ member.setId(request.getParameter("id"));
+ member.setPassword(request.getParameter("password"));
+ member.setEmail(request.getParameter("email"));
+ ...
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

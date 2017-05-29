@@ -15,13 +15,20 @@ public class ParamServlet3 extends HttpServlet {
 	public ParamServlet3() {
 		super();
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		//request.setCharacterEncoding("UTF-8"); //필터 적용하여 필요 없음
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 
-		response.setCharacterEncoding("UTF-8");
+		//response.setCharacterEncoding("UTF-8");  //필터 적용하여 필요 없음
 		PrintWriter out = response.getWriter();
 
 		out.println("<!DOCTYPE html>			  ");

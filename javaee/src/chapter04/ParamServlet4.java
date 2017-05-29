@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ParamServlet4 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		//request.setCharacterEncoding("UTF-8"); //필터 적용하여 필요 없음
 //		String name = request.getParameter("name");
 //		String id = request.getParameter("id");
 //		String pw = request.getParameter("pw");
