@@ -9,7 +9,7 @@
 <body>
 	<table align="center">
 		<caption> 에러 발생 </caption>
-		<tr><td> <%=exception.getMessage() %> </td></tr>
+		<tr><td> ${msg} </td></tr>
 		<tr><td> 에러가 발생했습니다. 다시 수행해 주세요! </td> 
 	</table>
 </body>
