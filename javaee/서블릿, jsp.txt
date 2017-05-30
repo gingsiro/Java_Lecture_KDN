@@ -371,7 +371,7 @@ EL 장점
  ${msg}
  
 jQuery = $()
-EL	  
+EL	   = ${}
  
 
  
