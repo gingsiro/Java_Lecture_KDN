@@ -179,18 +179,22 @@ JSP
 
 jsp -> .java -> 실행
 
-주석 <%-- 자바코드 --%>  : jsp -> .java 때 사라짐 
-	 <%// 자바코드 %>	 : .java -> 실행 때 사라짐
-코드 <% 자바코드 %>		 : jsp -> .java 때 코드가 _jspService() 바디에 추가
-							지역변수로 선언됨(jspService 메서드의 바디에 추가되니까)
-	 <%= 내용 %>		 : out.print("내용");, 세미콜론 들어가면 안됨
-	 						_jspService()바디에 추가
-	 <%! 속성, 메서드 선언 %>
+주석
+comment	  	<%-- 자바코드 --%>	: jsp -> .java 때 사라짐 
+	 		<%// 자바코드 %>	: .java -> 실행 때 사라짐
+코드
+scriptlet 	<% 자바코드 %>		: jsp -> .java 때 코드가 _jspService() 바디에 추가
+								  지역변수로 선언됨(jspService 메서드의 바디에 추가되니까)
+expression	<%= 내용 %>			: out.print("내용");, 세미콜론 들어가면 안됨
+	 						  	  _jspService()바디에 추가
+declaration	<%! 속성, 메서드 선언 %> : 변하지 않는 값만 입력한다.
+										재사용이 어렵다.
+	 <%@ 페이지 import %>
 
 servlet vs jsp
 jsp 가 더 무겁다.
 화면은 jsp 로 만들어주고
-MVC 패턴에서 
+MVC 패턴에서
 Model(service, dto, dao)은 Java로
 View는 HTML과 JSP로
 Controller는 Servlet으로 작성한다.
@@ -252,6 +256,13 @@ scope : 저장 공간
  - public void removeAttribute(String name) : name에 해당하는 value를 삭제
 
 
+request와 세션의 차이
+request : forward되는 두 페이지(servlet, jsp)간에만 공유
+			요청에 대한 처리가 종료되면 폐기됨
+			client의 요청 정보를 담고 있는 객체
+session : 브라우저가 종료될 때까지 공유
+			사용자의 상태 정보를 저장
+
 ##쿠키/세션##
 쿠키정보는 항상 요청 패킷에 들어간다. 사용할지 안할지에 달린것
 
@@ -261,8 +272,8 @@ scope : 저장 공간
 Client		  │				   │├JSessionID │ 음수쿠키발행
 └Cookie		  └────────────────┴────────────┘
  └JSessionID   HTTPSession session = request.getSession();
- 			    
-			
+
+
 JSessionID는 브라우저 종료되면 삭제
 항상 처리가 모두 끝나고 나면 쿠키,세션을 삭제 해 주어야 한다. 
  
@@ -287,6 +298,16 @@ member/login.jsp
 	이후 모든 페이지를 포워드 한다.
 2. context경로를 추출해 context를 기준으로 경로 설정
 
+
+forward와 redirect
+forward : request가 공유되므로
+			scope에 저장된 데이터가 유지
+			클라이언트의 요청 정보도 유지
+			url은 유지됨
+redirect : 새로운 request로 요청이 되므로
+			scope에 저장된 데이터가 유지되지 않고
+			클라이언트의 요청 정보도 유지되지 않고
+			url은 변경
 
 
 <%@ include file="url" %>
@@ -314,10 +335,7 @@ member/login.jsp
  	 		session.setAttribute("member", member);
  	 	} %>
 		// scope에 따라 session이냐 다른 스코프냐로 사용이 달라짐
-		
- !!!! 퀴즈 !!!!
- useBean, 세션만료, jsp관련 스크립트들, forward/redirect
- 
+
  <jsp:setProperty name="useBean의 id" property="속성명" value="값"
  														param="form 양식의 이름" />
  ex)
@@ -334,6 +352,35 @@ member/login.jsp
  member.setPassword(request.getParameter("password"));
  member.setEmail(request.getParameter("email"));
  ...
+ 
+ 
+ !!!! 퀴즈 !!!!
+ useBean, 세션만료, jsp관련 스크립트들, forward/redirect
+ 
+ 
+ ─────────────────────────────────── 3일차 ───────────────────────────────────
+ 
+ 시험에는 domain, dao, controller, 페이지 한두장 정도가 실기시험
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  

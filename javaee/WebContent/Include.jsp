@@ -11,14 +11,14 @@
 		<tr>
 			<td>Directive Include</td>
 			<td><%@include file='CookieTest.jsp' %></td>
-		</tr>#
+		</tr>
 		<tr>
 			<td>Action Tag Include _ url</td>
 			<td><jsp:include page='CookieTest.jsp'></jsp:include></td>
 		</tr>
 		<tr>
 			<td>Action Tag Include _ urlPattern</td>
-			<td><jsp:include page='member/paramtest3.do'>
+			<td><!--<jsp:include page='member/paramtest3.do'>-->
 				<jsp:param value="kdn" name="id"/>
 				<jsp:param value="111" name="pw"/>
 				</jsp:include></td>
