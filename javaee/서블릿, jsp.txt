@@ -362,10 +362,18 @@ redirect : 새로운 request로 요청이 되므로
  
  시험에는 domain, dao, controller, 페이지 한두장 정도가 실기시험
  
+ 시험문제
+ 내장객체가 아닌것은?, 인것은?
  
+EL 장점 
+ <% String msg = (String)session.getAttribute("msg"); %>
+ <%=msg %>
+ ${msg}
  
+jQuery = $()
+EL	  
  
- 
+
  
  
  

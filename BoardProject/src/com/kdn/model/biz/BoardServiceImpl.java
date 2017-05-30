@@ -87,7 +87,7 @@ public class BoardServiceImpl implements BoardService {
 		Connection con = null;
 		try {
 			con = DBUtil.getConnection();
-			int total = dao.getCount(con, bean);
+			//int total = dao.getCount(con, bean);
 			return dao.searchAll(con, bean);
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -2,6 +2,7 @@ package com.kdn.model.domain;
 
 import java.io.Serializable;
 public class PageBean implements Serializable {
+	private static final long serialVersionUID = 1L;
 	/**
 	 * key : 검색 조건
 	 * word: 검색 단어

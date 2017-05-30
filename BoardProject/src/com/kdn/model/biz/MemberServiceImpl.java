@@ -33,10 +33,10 @@ public class MemberServiceImpl implements MemberService {
 
 	public List<Member> searchAll(PageBean bean) {
 		Connection con = null;
-		List<Member> members= null;
+		//List<Member> members= null;
 		try {
 			con = DBUtil.getConnection();
-			int count = dao.getCount(con, bean);
+			//int count = dao.getCount(con, bean);
 			return dao.searchAll(con,bean);
 		} catch(SQLException  s){
 			throw new UpdateException("DB 서버 오류");

@@ -2,6 +2,7 @@ package com.kdn.model.domain;
 
 import java.io.Serializable;
 public class BoardFile implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int no;
 	private String rfileName;
 	private String fileName;
