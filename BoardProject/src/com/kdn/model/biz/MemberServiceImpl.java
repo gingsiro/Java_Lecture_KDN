@@ -45,7 +45,7 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 
-	public boolean login(String id, String passwrod) {
+	public boolean login(String id, String password) {
 		Connection con = null;
 		Member member = null;
 		try {
@@ -59,7 +59,7 @@ public class MemberServiceImpl implements MemberService {
 		if(member == null){
 			throw new UpdateException("해당하는 아이디는 존재하지 않습니다.");
 		}
-		if(!passwrod.equals(member.getPassword())){
+		if(!password.equals(member.getPassword())){
 			throw new UpdateException("비밀번호가 맞지 않습니다.");
 		}
 		if(member.getWithdraw().equals("Y")){

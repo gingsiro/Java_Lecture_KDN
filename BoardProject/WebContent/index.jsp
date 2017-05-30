@@ -43,7 +43,7 @@
 		</c:otherwise>
 	</c:choose>
 	</article>
-</article>		
+</article>
 <footer id="copyright">
 <jsp:include page="copyright.jsp"/>
 </footer>	

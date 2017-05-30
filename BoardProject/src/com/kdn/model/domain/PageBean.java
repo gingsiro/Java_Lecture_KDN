@@ -9,7 +9,7 @@ public class PageBean implements Serializable {
 	 * pagelink : 
 	 */
 	private String key, word, pagelink;
-	private int pageNo,interval = 3, start=1 , end=interval ;
+	private int pageNo,interval = 5, start=1 , end=interval ;
 	public String getKey() {
 		return key;
 	}

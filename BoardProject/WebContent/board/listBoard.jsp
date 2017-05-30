@@ -48,6 +48,13 @@
 	  	</tr>
 	  	<tr align="center">
 	  	  <td width="100"> 번호</td><td width="200">제목</td><td  width="100">게시일</td>
+	  	  <c:forEach var="board" items="${ list }">
+			<tr>
+	  	  		<td>${ board.no }</td>
+	  	  		<td><a href="#" onclick="getBoard(${board.no})">${ board.title }</a></td>
+	  	  		<td>${ board.regdate }</td>
+	  	  	</tr>
+	  	  </c:forEach>
 	  	</tr>
 		</table>
 			<div class="bottom"><center> </center></div>
