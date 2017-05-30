@@ -368,31 +368,74 @@ redirect : 새로운 request로 요청이 되므로
 EL 장점 
  <% String msg = (String)session.getAttribute("msg"); %>
  <%=msg %>
- ${msg}
+
+=> ${msg}
+
+
+
  
 jQuery = $()
 EL	   = ${}
+
+
+
+${EL 표현식}
+
+${이름.속성명}		: Map, 일반객체
+${이름['속성명']}	: 배열, Collection
+
+scope는 EL이 자동으로 찾아줌
+
+session.setAttribute("msg", msg);
+${msg}
+${sessionScope.msg}
+${sessiontScope['msg']
  
+ 시험문제
+ EL을 통해 변수, 따옴표 있는지없는지에 대한 개념적 지식
+ 
+ 객체일 경우
+ 
+ 
+ JSTL (Java Standard Tag Lib)
+ - apache.org에서 다운 받음
+   (jstl.jar, standard.jar를 context폴더/WEB-INF/lib에 배치)
+ - 사용자 정의 태그
+ - JSTL을 jsp에서 사용하기 위해 등록
+   <%@ taglib prefix="JSTL Prefix Format" uri="http://java.sun.com/jsp/jstl/core" %>
+ 	Prefix Format : core 'c', format 'fmt', query 'sql', xml 'xml'
+//////////////////////////시험문제//////////////////////////
+uri 외워랏....
+
 
  
+ <c:if test="el표현식 조건">
+ 	//el표현식 조건이 참이면 수행될 문장 작성
+ </c:if>
  
  
  
+ choose ~when ~otherwise
+ <c:choose>
+ 	<c:when test="조건">
+ 		조건이 참이면 수행
+ 	</c:when>
+ 	<c:when test="조건">
+ 		조건이 참이면 수행
+ 	</c:when>
+ 	...
+ 	<c:otherwise>
+ 		위 조건이 모두 거짓이면 수행
+ 	</c:when>
+ </c:choose>
  
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ for ~each
+ <c:forEach var="변수" items="EL표현식으로 반복할 Array or Collection" 
+ 		   [begin="시작번호"] [end="끝번호"] [step="더할숫자]>
+ 	반복 할 수행문
+ </c:forEach>
  
  
  
