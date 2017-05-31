@@ -10,6 +10,7 @@ import com.kdn.model.domain.UpdateException;
 import com.kdn.model.domain.FileBean;
 import com.kdn.model.domain.PageBean;
 import com.kdn.util.DBUtil;
+import com.kdn.util.PageUtility;
 
 public class BoardServiceImpl implements BoardService {
 	private BoardDao  dao = new BoardDaoImpl();
@@ -87,7 +88,9 @@ public class BoardServiceImpl implements BoardService {
 		Connection con = null;
 		try {
 			con = DBUtil.getConnection();
-			//int total = dao.getCount(con, bean);
+			int total = dao.getCount(con, bean);
+			PageUtility  bar = new PageUtility(bean.getInterval(), total, bean.getPageNo(), "images/");
+			bean.setPagelink(bar.getPageBar());
 			return dao.searchAll(con, bean);
 		} catch (SQLException e) {
 			e.printStackTrace();

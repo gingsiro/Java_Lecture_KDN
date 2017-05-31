@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,com.kdn.model.domain.*"  %>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%> 
+<jsp:useBean id="bean" class="com.kdn.model.domain.PageBean" scope="request"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,12 +37,16 @@
 	  	<tr align="center">
 	  	 <td colspan="3" height="100" align="center">
 	  	  <select  name="key" id="key">
-	  		<option value="all" >-----all-----</option>
-	  		<option value="id" >아이디</option>
-	  		<option value="title">제목</option>
-	  		<option value="content">내용</option>
+	  		<option value="all" 	>-----all-----</option>
+	  		<option value="id" 		<%=bean.getKey("id") %>>아이디</option>
+	  		<option value="title"	<%=bean.getKey("title") %>>제목</option>
+	  		<option value="content"	<%=bean.getKey("content") %>>내용</option>
+	  		<!-- =bean.getKey("id") 의 반환값이 selected="selected"이면
+	  			 검색해서 선택한 결과마다 bean을 고정시켜 움직임 -->
+	  			 <!-- 따라서 아래 value에 bean.word도 bean의 값을 고정시켜 움직인다.
+	  			 	  이렇게 하면 페이지 번호에 따라 검색옵션을 주며 같이 쿼리가 돌아간다. -->
 	  	  </select>
-	  	  <input type="text" id="word" name="word" value=""/>
+	  	  <input type="text" id="word" name="word" value="${ bean.word }"/>
 	  	  <a href="#" onclick="pagelist(1)">검색</a> &nbsp;&nbsp;&nbsp;
 	  	  <a href="insertBoardFrom.do" >글쓰기</a>
 	  	 </td>
@@ -51,13 +56,13 @@
 	  	  <c:forEach var="board" items="${ list }">
 			<tr>
 	  	  		<td>${ board.no }</td>
-	  	  		<td><a href="#" onclick="getBoard(${board.no})">${ board.title }</a></td>
+	  	  		<td><a href="#" onclick="getBoard(${ board.no })">${ board.title }</a></td>
 	  	  		<td>${ board.regdate }</td>
 	  	  	</tr>
 	  	  </c:forEach>
 	  	</tr>
 		</table>
-			<div class="bottom"><center> </center></div>
+			<div class="bottom"><center>${ bean.pagelink } </center></div>
 		</form>
 	</div>
 </body>

@@ -72,6 +72,7 @@ public class MainController extends HttpServlet {
 		PageBean bean = new PageBean(key, word, null, pageNo);
 		boardService.searchAll(bean);
 		request.setAttribute("list", boardService.searchAll(bean));
+		request.setAttribute("bean", bean);
 		
 		return "board/listBoard.jsp";
 	}
